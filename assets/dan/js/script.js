@@ -127,11 +127,38 @@ document.addEventListener('DOMContentLoaded', function() {
                 answer4.style.color = 'black';
             }
         }
+
+        // Check the difficulty of the question and log the corresponding damage value
+        // Damage varies based on the difficulty level
+        let heroDamage = 0;
+        let villainDamage = 0;
+        switch (difficulty.innerHTML) {
+            case 'easy':
+                heroDamage = 20;
+                villainDamage = 10;
+                break;
+            case 'medium':
+                heroDamage = 20;
+                villainDamage = 20;
+                break;
+            case 'hard':
+                heroDamage = 20;
+                villainDamage = 40;
+                break;
+        }
         // Disable the answers and wait 2 seconds before generating a new question
         setTimeout(() => {
             resetAnswerStyles();
             generateQuestion();
         }, 2000);
+
+        // Call the heroFight or villainFight function depending on if the answer was correct
+        if (e.target.innerHTML === correctAnswer) {
+            heroFight(heroDamage);
+        } else {
+            villainFight(villainDamage);
+        }
+
     }
 
     /**
