@@ -35,15 +35,6 @@ MIRO BOARD- Even if just a screenshot!
 
 Imagery + accreditation if we use Itch stuff.
 
-I guess the draft readme didn’t take nearly as long. Will do a timetable.
-
-9: Stand up. Group huddle to work things out. Get the repo set up, copy across user stories. 
-
-10 - 12  - Phil - Rewatch the SME session, build the bones of the hero battler as light weight as possible. Create a functional “Press this button to hit”. 
-
-10 - 12  - Everyone Else - Realise that whilst you said sure about trying to be project lead, that you don’t want to tell people what to do, particularly when you are worried that you are the least competent member of the team.
-
-Make it broader!
 
 Thursday: After stand up, have proper stand up with us lot. Set up the repo. Scaffolding, boilerplate stuff done for the index page. Phil writes the code for the hero battler as best he can and gets something lightweight and functional. Finalise colours and fonts. Deploy something by EOD that at least has trivia questions and has the code for a fight. Stand down after the stand down at 4, call it 430.
 
