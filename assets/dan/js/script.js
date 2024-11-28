@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Variables
     let incorrectAnswers = [];
     let correctAnswer = '';
+
     let questions = [];
     let currentQuestionIndex = 0;
 
     // Event listeners
-    start.addEventListener('click', generateQuestion);
     answer1.addEventListener('click', checkAnswer);
     answer2.addEventListener('click', checkAnswer);
     answer3.addEventListener('click', checkAnswer);
