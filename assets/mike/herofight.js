@@ -5,7 +5,11 @@ let hero = {
         this.nameHero = playerName;
     },
     health: 100, /* To DO displayed as health bar */
-    document.getElementById('hero-health').innerText = `Health: ${this.health}`;
+    updateHealthBar() {
+        const healthPercentage = (this.health / 100) * 100;
+        document.getElementById('hero-health').innerText = `${this.health}%`;
+        document.getElementById('hero-health-bar').style.width = `${healthPercentage}%`;
+    },
     isAlive: true,
     attacks: [
         ["Trivia Tornado", 10],
@@ -25,7 +29,11 @@ let villain = {
         this.nameVillain = villainName;
     },
     health: 100, 
-    document.getElementById('hero-health').innerText = `Health: ${this.health}`;
+    updateHealthBar() {
+        const healthPercentage = (this.health / 100) * 100;
+        document.getElementById('villain-health').innerText = `${this.health}%`;
+        document.getElementById('villain-health-bar').style.width = `${healthPercentage}%`;
+    },
     isAlive: true,
     attacks: [
         ["Knowledge Knockout", 10],
@@ -77,4 +85,3 @@ function villainFight {
     }
 };
 
-/* why wont this merge? */
