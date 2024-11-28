@@ -17,11 +17,19 @@
             <div class="container border border-primary p-3" id="screen-section">
                 <div class="row">
                     <div class="col-md-6 border border-primary p-3" id="hero-section">
-                        <h2>Hero</h2>
+                        <h2 id="hero-name">Hero</h2>
+                        <div class="healthbar">
+                            <p class="health-number" id="hero-health">50%</p>
+                            <span style="width: 50%" id="hero-health-bar"></span>
+                        </div>
                         <!-- Hero content goes here -->
                     </div>
                     <div class="col-md-6 border border-primary p-3" id="villain-section">
-                        <h2>Villain</h2>
+                        <h2 id="villain-name">Villain</h2>
+                        <div class="healthbar" style="direction:rtl;">
+                            <p class="health-number" id="villain-health">50%</p>
+                            <span style="width: 50%" id="villain-health-bar"></span>
+                        </div>
                         <!-- Villain content goes here -->
                     </div>
                 </div>
@@ -36,6 +44,7 @@
             </div>
             <div class="container">
                 <div class="row">
+                    <i class="fa-solid fa-gear" id="settings-button">Settings</i>
                     <div class="col-md-12 border border-primary p-3" id="question-section">
                         <p id="question-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure eveniet
                             eius corporis suscipit libero. Distinctio laudantium ad neque autem non, architecto, modi
@@ -63,6 +72,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/956711f51a.js" crossorigin="anonymous"></script>
 
 </body>
 
