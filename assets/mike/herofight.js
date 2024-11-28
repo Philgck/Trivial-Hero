@@ -56,7 +56,7 @@ let villain = {
     }
 };
 
-function heroFight {
+function heroFight() {
     while (hero.isAlive && villain.isAlive) {
         let heroAttack = hero.attack(damage);
         /* display attack on screen */
@@ -68,11 +68,12 @@ function heroFight {
             villain.isAlive = false;
             /* display victory on screen */
             document.getElementById('screen-section').innerHTML += `${villain.name} has been defeated!`;
-        },
+            break;
+        }
     }
 };
 
-function villainFight {
+function villainFight() {
     while (hero.isAlive && villain.isAlive) {
 
         let villainAttack = villain.attack(damage);
@@ -85,7 +86,8 @@ function villainFight {
             hero.isAlive = false;
             /* display defeat on screen */
             document.getElementById('screen-section').innerHTML += `${hero.name} has been defeated!`;
-        },
+            break;
+        }
     }
 };
 
