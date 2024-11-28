@@ -60,6 +60,7 @@ function heroFight() {
     while (hero.isAlive && villain.isAlive) {
         let heroAttack = hero.attack(damage);
         /* display attack on screen */
+        /* The += operator appends the new content to the existing content of the element. This means that the new attack message will be added to the end of the current content in the screen-section element. */
         document.getElementById('screen-section').innerHTML += `${hero.name} attacked with ${heroAttack[0]} for ${heroAttack[1]} damage!<br>`;
         villain.health -= heroAttack[1];
         villain.updateHealthBar();
@@ -78,6 +79,7 @@ function villainFight() {
 
         let villainAttack = villain.attack(damage);
         /* display attack on screen */
+        /* The += operator appends the new content to the existing content of the element. This means that the new attack message will be added to the end of the current content in the screen-section element. */
         document.getElementById('screen-section').innerHTML += `${villain.name} attacked with ${villainAttack[0]} for ${villainAttack[1]} damage!<br>`;
         hero.health -= villainAttack[1];
         hero.updateHealthBar();
