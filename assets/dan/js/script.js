@@ -22,6 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     answer2.addEventListener('click', checkAnswer);
     answer3.addEventListener('click', checkAnswer);
     answer4.addEventListener('click', checkAnswer);
+    questionCategory.addEventListener('change', fetchQuestions);
+   difficultySelector.addEventListener('change', fetchQuestions);
+
+    fetchQuestions();
 
     /**
      * Fetches 50 questions from the Open Trivia Database API and stores them.
@@ -46,6 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
+
+            generateQuestion();
+
         }
     
 
