@@ -42,4 +42,23 @@ Friday: Stand up 930, stand down 430. Build it out, get it looking close to wire
 
 Monday: Stand up 930. Review anything that was worked on over the weekend, if anything at all. Decide if we want to integrate it, but only if it works. Do not break it.
 
+list of ID's on the index page (from top to bottom)
+
+id="game-area"
+id="screen-section"
+id="hero-section"
+id="hero-name"
+id="hero-health"
+id="hero-health-bar"
+id="villain-section"
+id="villain-health"
+id="villain-health-bar"
+id="hero-outcome"
+id="villain-outcome"
+id="settings-button"
+id="question-section"
+id="answer1"
+id="answer2"
+id="answer3"
+id="answer4"
 
