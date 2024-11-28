@@ -4,7 +4,8 @@ let hero = {
     setName(playerName) {
         this.nameHero = playerName;
     },
-    health: 100, /* To DO displayed as health bar */
+    health: 100, 
+    /* health bar link */
     updateHealthBar() {
         const healthPercentage = (this.health / 100) * 100;
         document.getElementById('hero-health').innerText = `${this.health}%`;
@@ -29,6 +30,7 @@ let villain = {
         this.nameVillain = villainName;
     },
     health: 100, 
+    /* health bar link */
     updateHealthBar() {
         const healthPercentage = (this.health / 100) * 100;
         document.getElementById('villain-health').innerText = `${this.health}%`;
@@ -60,6 +62,7 @@ function heroFight {
         /* display attack on screen */
         document.getElementById('screen-section').innerHTML += `${hero.name} attacked with ${heroAttack[0]} for ${heroAttack[1]} damage!<br>`;
         villain.health -= heroAttack[1];
+        villain.updateHealthBar();
 
         if (villain.health <= 0) {
             villain.isAlive = false;
@@ -76,6 +79,7 @@ function villainFight {
         /* display attack on screen */
         document.getElementById('screen-section').innerHTML += `${villain.name} attacked with ${villainAttack[0]} for ${villainAttack[1]} damage!<br>`;
         hero.health -= villainAttack[1];
+        hero.updateHealthBar();
 
         if (hero.health <= 0) {
             hero.isAlive = false;
