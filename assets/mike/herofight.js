@@ -10,14 +10,14 @@ let hero = {
     document.getElementById('hero-health').innerText = `Health: ${this.health}`;
     isAlive: true,
     attacks: [
-        ["the showdown!", 10],
-        ["fact attack", 2],
-        ["flying nose cruncher", 5],
+        ["Trivia Tornado", 10],
+        ["Brain Buster", 2],
+        ["Fact Frenzy", 5],
     ], 
 
     attack() {
         let rand = Math.floor(Math.random() * this.attacks.length);
-        return this.attacks[rand, damage];
+        return this.attacks[rand, heroDamage];
     }
 };
 
@@ -26,16 +26,16 @@ let villain = {
     setName(villainName) {
         this.name = villainName;
     },
-    health: 100, /* To Do health based on difficulty */
+    health: 100, 
     document.getElementById('hero-health').innerText = `Health: ${this.health}`;
     isAlive: true,
     attacks: [
-        ["web shooter", 10],
-        ["punch", 2],
-        ["swing kick", 5],
-    ], /* attack name needs linking to quiz wrong answer */
+        ["Knowledge Knockout", 10],
+        ["Smarty Smash", 2],
+        ["Answer Avalanche", 5],
+    ],
     
-    /* code below for linking main attack to wrong answer in quiz */
+    /* code below for linking main attack to wrong answer in quiz 
     
     setAttackName(quizWrongAnswer) {
         this.wrongAttackName = quizWrongAnswer;
@@ -44,7 +44,7 @@ let villain = {
 
     attack() {
         let rand = Math.floor(Math.random() * this.attacks.length);
-        return this.attacks[rand, damage];
+        return this.attacks[rand, villainDamage];
     }
 };
 
@@ -57,7 +57,7 @@ function heroFight {
 
         if (villain.health <= 0) {
             villain.isAlive = false;
-            /* display vistory on screen */
+            /* display victory on screen */
             document.getElementById('screen-section').innerHTML += `${villain.name} has been defeated!`;
         },
     }
