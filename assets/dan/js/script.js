@@ -1,12 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Elements
     let question = document.getElementById('question-text');
     let answer1 = document.getElementById('answer1');
     let answer2 = document.getElementById('answer2');
     let answer3 = document.getElementById('answer3');
     let answer4 = document.getElementById('answer4');
-    let category = document.getElementById('question-category');
-    let difficulty = document.getElementById('question-difficulty');
+    let category = ""
+    let difficulty = ""
     let questionCategory = document.getElementById('category-selector');
     let difficultySelector = document.getElementById('difficulty-selector');
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     answer3.addEventListener('click', checkAnswer);
     answer4.addEventListener('click', checkAnswer);
     questionCategory.addEventListener('change', fetchQuestions);
-   difficultySelector.addEventListener('change', fetchQuestions);
+    difficultySelector.addEventListener('change', fetchQuestions);
 
     fetchQuestions();
 
@@ -35,26 +35,26 @@ document.addEventListener('DOMContentLoaded', function() {
      * @returns {Promise<void>} A promise that resolves when the questions have been fetched and stored.
      * @throws Will log an error message if the fetch request fails.
      */
-        async function fetchQuestions() {
-            try {
-                const response = await fetch(`https://opentdb.com/api.php?amount=50&type=multiple&category=${questionCategory.value}&difficulty=${difficultySelector.value}`);
-                const data = await response.json();
-                // Check if the response contains any results, otherwise log an error message with the response code
-                if (!data.results || data.results.length === 0) {
-                    console.error('No results found');
-                    console.log('Response Code:', data.response_code);
-                    return;
-                }
-                // Store the questions in the global variable
-                questions = data.results;
-            } catch (error) {
-                console.error('Error fetching data:', error);
+    async function fetchQuestions() {
+        try {
+            const response = await fetch(`https://opentdb.com/api.php?amount=50&type=multiple&category=${questionCategory.value}&difficulty=${difficultySelector.value}`);
+            const data = await response.json();
+            // Check if the response contains any results, otherwise log an error message with the response code
+            if (!data.results || data.results.length === 0) {
+                console.error('No results found');
+                console.log('Response Code:', data.response_code);
+                return;
             }
-
-            generateQuestion();
-
+            // Store the questions in the global variable
+            questions = data.results;
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
-    
+
+        generateQuestion();
+
+    }
+
 
     /**
      * This function checks if the questions array is empty or if the current question index
