@@ -50,13 +50,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     /**
-     * Asynchronously generates a new trivia question by fetching data from the Open Trivia Database API.
-     * Updates the DOM with the new question and possible answers.
+     * This function checks if the questions array is empty or if the current question index
+     * has reached the end of the array. If so, it fetches new questions and resets the index.
+     * It then updates the DOM with the new question and its answers, shuffling the incorrect
+     * answers and inserting the correct answer at a random position.
      * 
      * @async
      * @function generateQuestion
-     * @returns {Promise<void>} A promise that resolves when the question has been generated and the DOM has been updated.
-     * @throws Will log an error message if the fetch request fails.
+     * @throws Will log an error to the console if there is an issue fetching data.
      */
     async function generateQuestion() {
 
@@ -106,10 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkAnswer(e) {
         if (e.target.innerHTML === correctAnswer) {
             e.target.style.backgroundColor = 'green';
-            correct.innerHTML = parseInt(correct.innerHTML) + 1;
         } else {
             e.target.style.backgroundColor = 'red';
-            incorrect.innerHTML = parseInt(incorrect.innerHTML) + 1;
             // Highlight the correct answer in light green
             if (answer1.innerHTML === correctAnswer) {
                 answer1.style.backgroundColor = '#d4edda';
