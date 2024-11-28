@@ -1,4 +1,4 @@
-hero attack game
+
 
 let hero = {
     /* To Do name chosen at same stage as difficulty or before game starts. If not generic hero? if names empty add default*/
