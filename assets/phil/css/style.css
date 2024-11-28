@@ -1,15 +1,31 @@
+/* Set the container to be a flex container */
+#screen-section .flex-container {
+    display: flex;
+    justify-content: space-between; /* Optional: Adjusts the space between hero and villain */
+    gap: 20px; /* Optional: Adds space between the sections */
+}
+
+/* Set each section (hero and villain) to take up 50% of the container */
+.flex-item {
+    flex: 1 1 48%; /* Flex properties: grow, shrink, and basis (set to 48% to create space between items) */
+    box-sizing: border-box;
+}
+
+
 #hero-section {
-    background-color: blue;
-    height: 100%;
+}
+
+#hero-image {
+    max-height: 60%;
+    object-fit: contain;
+    margin-top: auto;
 }
 
 #villain-section {
-    background-color: red;
-    height: 100%;
 }
 
 #screen-section {
-    min-height: 60vh;
+    height: 60vh;
     background-image: url("../images/arena.png");
     background-size: cover;
     background-position: bottom;
