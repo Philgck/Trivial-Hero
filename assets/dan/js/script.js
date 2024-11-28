@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Elements
-    let question = document.getElementById('question');
+    let question = document.getElementById('question-text');
     let answer1 = document.getElementById('answer1');
     let answer2 = document.getElementById('answer2');
     let answer3 = document.getElementById('answer3');
     let answer4 = document.getElementById('answer4');
-    let category = document.getElementById('category');
-    let difficulty = document.getElementById('difficulty');
+    let category = document.getElementById('question-category');
+    let difficulty = document.getElementById('question-difficulty');
     let questionCategory = document.getElementById('category-selector');
     let difficultySelector = document.getElementById('difficulty-selector');
 
