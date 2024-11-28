@@ -2,9 +2,9 @@ hero attack game
 
 let hero = {
     /* To Do name chosen at same stage as difficulty or before game starts. If not generic hero? if names empty add default*/
-    name: "", 
+    nameHero: "", 
     setName(playerName) {
-        this.name = playerName;
+        this.nameHero = playerName;
     },
     health: 100, /* To DO displayed as health bar */
     document.getElementById('hero-health').innerText = `Health: ${this.health}`;
@@ -22,9 +22,9 @@ let hero = {
 };
 
 let villain = {
-    name: "", /* To Do name chosen randomly by API? */
+    nameVillain: "", /* To Do name chosen randomly by API? */
     setName(villainName) {
-        this.name = villainName;
+        this.nameVillain = villainName;
     },
     health: 100, 
     document.getElementById('hero-health').innerText = `Health: ${this.health}`;
