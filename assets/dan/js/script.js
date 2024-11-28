@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Elements
-    let question = document.getElementById('question');
+    let question = document.getElementById('question-text');
     let answer1 = document.getElementById('answer1');
     let answer2 = document.getElementById('answer2');
     let answer3 = document.getElementById('answer3');
     let answer4 = document.getElementById('answer4');
-    let category = document.getElementById('category');
-    let difficulty = document.getElementById('difficulty');
+    let category = document.getElementById('question-category');
+    let difficulty = document.getElementById('question-difficulty');
     let questionCategory = document.getElementById('category-selector');
     let difficultySelector = document.getElementById('difficulty-selector');
 
@@ -22,6 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     answer2.addEventListener('click', checkAnswer);
     answer3.addEventListener('click', checkAnswer);
     answer4.addEventListener('click', checkAnswer);
+    questionCategory.addEventListener('change', fetchQuestions);
+   difficultySelector.addEventListener('change', fetchQuestions);
+
+    fetchQuestions();
 
     /**
      * Fetches 50 questions from the Open Trivia Database API and stores them.
@@ -46,17 +50,21 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
+
+            generateQuestion();
+
         }
     
 
     /**
-     * Asynchronously generates a new trivia question by fetching data from the Open Trivia Database API.
-     * Updates the DOM with the new question and possible answers.
+     * This function checks if the questions array is empty or if the current question index
+     * has reached the end of the array. If so, it fetches new questions and resets the index.
+     * It then updates the DOM with the new question and its answers, shuffling the incorrect
+     * answers and inserting the correct answer at a random position.
      * 
      * @async
      * @function generateQuestion
-     * @returns {Promise<void>} A promise that resolves when the question has been generated and the DOM has been updated.
-     * @throws Will log an error message if the fetch request fails.
+     * @throws Will log an error to the console if there is an issue fetching data.
      */
     async function generateQuestion() {
 
@@ -106,10 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkAnswer(e) {
         if (e.target.innerHTML === correctAnswer) {
             e.target.style.backgroundColor = 'green';
-            correct.innerHTML = parseInt(correct.innerHTML) + 1;
         } else {
             e.target.style.backgroundColor = 'red';
-            incorrect.innerHTML = parseInt(incorrect.innerHTML) + 1;
             // Highlight the correct answer in light green
             if (answer1.innerHTML === correctAnswer) {
                 answer1.style.backgroundColor = '#d4edda';
@@ -128,11 +134,38 @@ document.addEventListener('DOMContentLoaded', function() {
                 answer4.style.color = 'black';
             }
         }
+
+        // Check the difficulty of the question and log the corresponding damage value
+        // Damage varies based on the difficulty level
+        let heroDamage = 0;
+        let villainDamage = 0;
+        switch (difficulty.innerHTML) {
+            case 'easy':
+                heroDamage = 20;
+                villainDamage = 10;
+                break;
+            case 'medium':
+                heroDamage = 20;
+                villainDamage = 20;
+                break;
+            case 'hard':
+                heroDamage = 20;
+                villainDamage = 40;
+                break;
+        }
         // Disable the answers and wait 2 seconds before generating a new question
         setTimeout(() => {
             resetAnswerStyles();
             generateQuestion();
         }, 2000);
+
+        // Call the heroFight or villainFight function depending on if the answer was correct
+        if (e.target.innerHTML === correctAnswer) {
+            heroFight(heroDamage);
+        } else {
+            villainFight(villainDamage);
+        }
+
     }
 
     /**
