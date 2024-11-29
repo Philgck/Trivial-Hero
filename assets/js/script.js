@@ -35,6 +35,23 @@ document.addEventListener('DOMContentLoaded', function () {
             ["Trivia Tornado"],
             ["Brain Buster"],
             ["Fact Frenzy"],
+            ["Quiz Quake"],
+            ["Trivia Tsunami"],
+            ["Puzzle Pummel"],
+            ["Conundrum Crush"],
+            ["Riddle Rampage"],
+            ["Enigma Eruption"],
+            ["Mystery Maelstrom"],
+            ["Paradox Punch"],
+            ["Brainwave Blitz"],
+            ["Knowledge Knockdown"],
+            ["Wisdom Whirlwind"],
+            ["Insight Impact"],
+            ["Logic Lunge"],
+            ["Reasoning Rumble"],
+            ["Intellect Inferno"],
+            ["Cognition Clash"],
+            ["Mind Meltdown"]
         ],
 
         attack() {
@@ -45,27 +62,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let villain = {
         nameVillain: "",
-        setName() {
-            const prefixes = ["Dr.", "Evil", "Master", "Lord", "Professor", "Baron", "Count", "Duke", "Emperor", "General", "King",
-                "Prince", "Queen", "Sir", "Warlord", "Wizard", "Overlord", "Commander", "Captain", "Chief"];
-            const suffixes = [
-                "the Terrible", "the Wicked", "the Cruel", "the Malevolent", "the Vicious", "the Sinister",
-                "the Ruthless", "the Merciless", "the Savage", "the Fierce", "the Brutal", "the Grim",
-                "the Dreadful", "the Fearsome", "the Horrible", "the Menacing", "the Nefarious",
-                "the Villainous", "the Malicious"
-            ];
-            const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-            const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
-            const categoryWords = currentCategory.split(" ");
-            const lastWord = categoryWords[categoryWords.length - 1];
-            this.nameVillain = `${randomPrefix} "${lastWord}" ${randomSuffix}`;
-        },
         health: 100,
         isAlive: true,
         attacks: [
             ["Knowledge Knockout"],
             ["Smarty Smash"],
             ["Answer Avalanche"],
+            ["Quiz Quake"],
+            ["Trivia Tsunami"],
+            ["Puzzle Pummel"],
+            ["Conundrum Crush"],
+            ["Riddle Rampage"],
+            ["Enigma Eruption"],
+            ["Mystery Maelstrom"],
+            ["Paradox Punch"],
+            ["Brainwave Blitz"],
+            ["Knowledge Knockdown"],
+            ["Wisdom Whirlwind"],
+            ["Insight Impact"],
+            ["Logic Lunge"],
+            ["Reasoning Rumble"],
+            ["Intellect Inferno"],
+            ["Cognition Clash"],
+            ["Mind Meltdown"]
         ],
 
         /* code below for linking main attack to wrong answer in quiz 
@@ -93,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
     answer4.addEventListener('click', (e) => checkAnswer(e, currentDifficulty));
     questionCategory.addEventListener('change', fetchQuestions);
     difficultySelector.addEventListener('change', fetchQuestions);
+    heroName.addEventListener('change', () => hero.setName(heroName.value));
     /* Mike retry button test */
     retryButton.addEventListener('click', () => location.reload());
 
@@ -163,7 +183,23 @@ document.addEventListener('DOMContentLoaded', function () {
             answer3.innerHTML = answers[2];
             answer4.innerHTML = answers[3];
             currentDifficulty = questionData.difficulty; // Store as string
-            currentCategory = questionData.category;
+            currentCategory = questionData.category; // Store as string
+
+            // Set the villain's name dynamically based on the current category
+            const prefixes = ["Dr.", "Evil", "Master", "Lord", "Professor", "Baron", "Count", "Duke", "Emperor", "General", "King",
+                "Prince", "Queen", "Sir", "Warlord", "Wizard", "Overlord", "Commander", "Captain", "Chief"];
+            const suffixes = [
+                "the Terrible", "the Wicked", "the Cruel", "the Malevolent", "the Vicious", "the Sinister",
+                "the Ruthless", "the Merciless", "the Savage", "the Fierce", "the Brutal", "the Grim",
+                "the Dreadful", "the Fearsome", "the Horrible", "the Menacing", "the Nefarious",
+                "the Villainous", "the Malicious"
+            ];
+            const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+            const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+            const categoryWords = currentCategory.split(" ");
+            const lastWord = categoryWords[categoryWords.length - 1];
+            villain.nameVillain = `${randomPrefix} "${lastWord}" ${randomSuffix}`;
+
             enableAnswers();
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -210,11 +246,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 villainDamage = 10;
                 break;
             case "medium":
-                heroDamage = 30;
+                heroDamage = 20;
                 villainDamage = 20;
                 break;
             case "hard":
-                heroDamage = 40;
+                heroDamage = 20;
                 villainDamage = 30;
                 break;
         }
