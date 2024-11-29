@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let questionCategory = document.getElementById('category-selector');
     let difficultySelector = document.getElementById('difficulty-selector');
     let heroName = document.getElementById('hero-name-input');
+    let heroTitle= document.getElementById('hero-name');
+    let villainTitle = document.getElementById('villain-name');    
     /* Mike retry button test */
     let retryButton = document.getElementById('retry-button');
 
@@ -24,10 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let gameState = true;
 
     let hero = {
-        /* To Do name chosen at same stage as difficulty or before game starts. If not generic hero? if names empty add default*/
         nameHero: heroName.value || "Trivial Hero",
         setName(heroName) {
             this.nameHero = heroName;
+            heroTitle.innerHTML = this.nameHero;
+
         },
         health: 100, /* To DO displayed as health bar */
         isAlive: true,
@@ -199,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const categoryWords = currentCategory.split(" ");
             const lastWord = categoryWords[categoryWords.length - 1];
             villain.nameVillain = `${randomPrefix} "${lastWord}" ${randomSuffix}`;
+            villainTitle.innerHTML = villain.nameVillain;
 
             enableAnswers();
         } catch (error) {
