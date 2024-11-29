@@ -77,6 +77,11 @@
         height: 30vh;
     }
 
+    #hero-image,
+    #villain-image {
+        visibility: hidden;
+    }
+
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -84,6 +89,11 @@
     #screen-section {
         flex-direction: row;
         height: 40vh;
+    }
+
+    #hero-image,
+    #villain-image {
+        visibility: hidden;
     }
 
 }
