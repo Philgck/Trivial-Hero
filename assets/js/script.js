@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let gameState = true;
 
+    /* Mike Delete? fullscreen button */
+    /* let fullScreenArea = document.getElementById("fullscreen-area");
+    let fsbtn = document.getElementById("fsbtn"); */
+
+
     // Event listeners
     answer1.addEventListener('click', (e) => checkAnswer(e, currentDifficulty));
     answer2.addEventListener('click', (e) => checkAnswer(e, currentDifficulty));
@@ -235,6 +240,37 @@ document.addEventListener('DOMContentLoaded', function () {
         // Reset answer button styles
         resetAnswerStyles();
     }
+
+    /* MIKE delete? fullscreen button test */
+    /* fsbtn.addEventListener("click", () => {
+        if (fsbtn.textContent == "Go Fullscreen") {
+            if (fullScreenArea.requestFullscreen) {
+                fullScreenArea.requestFullscreen();
+            } else if (fullScreenArea.msRequestFullscreen) {
+                fullScreenArea.msRequestFullscreen();
+            } else if (fullScreenArea.mozRequestFullScreen) {
+                fullScreenArea.mozRequestFullScreen();
+            } else if (fullScreenArea.webkitRequestFullscreen) {
+                fullScreenArea.webkitRequestFullscreen();
+            }
+    
+            fsbtn.textContent = "Exit Fullscreen";
+
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            }
+    
+            fsbtn.textContent = "Go Fullscreen";
+
+        }
+    }); */
 
 let hero = {
     /* To Do name chosen at same stage as difficulty or before game starts. If not generic hero? if names empty add default*/
