@@ -13,10 +13,17 @@
 
 <body>
     <main>
-      <!-- MIKE delete? Fullscreen--> <!-- <div id="fullscreen-area"> -->
+        <div id="fullscreen-overlay">
+            <h1 style="color: white;">Trivial Hero</h1>
+            <div style="width: 30%;">
+            <button type="button" class="btn btn-light m-2 w-100" id="startGame">Start Game</button>
+            <button type="button" class="btn btn-light m-2 w-100" id="instructions">Instructions</button>
+            </div>
+        </div>
+        <!-- MIKE delete? Fullscreen--> <!-- <div id="fullscreen-area"> -->
         <section id="game-area" class="border border-primary p-3">
             <div class="container border border-primary p-3 d-flex" id="screen-section">
-                <div class="flex-item border border-primary p-3 d-flex flex-column" id="hero-section">
+                <div class="characterBox border border-primary p-3 d-flex flex-column" id="hero-section">
                     <div style="flex: 0 0 20%;">
                         <h2 id="hero-name">Hero</h2>
                         <div class="healthbar">
@@ -29,10 +36,10 @@
                     </div>
                     <!-- Hero content goes here -->
                 </div>
-                <div class="flex-item border border-primary p-3 d-flex flex-column" id="villain-section">
+                <div class="characterBox border border-primary p-3 d-flex flex-column" id="villain-section">
                     <div style="flex: 0 0 20%;">
                         <h2 id="villain-name">Villain</h2>
-                        <div class="healthbar" >
+                        <div class="healthbar">
                             <p class="health-number" id="villain-health">100</p>
                             <span style="width: 100%" id="villain-health-bar"></span>
                         </div>
@@ -47,10 +54,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 border border-primary p-3" id="fight-section">
-                    <p id="hero-outcome"></p>
+                    <p id="hero-outcome">Our hero enters the fight!</p>
                 </div>
-                    <div class="col-md-6 border border-primary p-3" id="fight-section">
-                    <p id="villain-outcome"></p>
+                <div class="col-md-6 border border-primary p-3" id="fight-section">
+                    <p id="villain-outcome">The abstract representation of knowledge approaches!</p>
                 </div>
             </div>
         </div>
@@ -119,7 +126,7 @@
                                 <!-- Mike retry button -->
                                 <button type="button" class="btn btn-secondary" id="retry-button">Retry</button>
                                 <!-- Mike fullscreen button TEST-->
-                                <button id="fsbtn">Go Fullscreen</button> 
+                                <button id="fsbtn">Go Fullscreen</button>
                             </div>
                         </div>
                     </div>
@@ -147,7 +154,7 @@
         </div>
         </div>
         </section>
-    <!-- MIKE delete? fullscreen </div> -->
+        <!-- MIKE delete? fullscreen </div> -->
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

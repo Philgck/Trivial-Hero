@@ -1,34 +1,35 @@
-/* Set the container to be a flex container */
-#screen-section .flex-container {
+/* Fullscreen Overlay */
+
+#fullscreen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: blue;
+    z-index: 9999;
     display: flex;
-    justify-content: space-between; /* Optional: Adjusts the space between hero and villain */
-    gap: 20px; /* Optional: Adds space between the sections */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display:none;
 }
 
-/* Set each section (hero and villain) to take up 50% of the container */
-.flex-item {
-    flex: 1 1 48%; /* Flex properties: grow, shrink, and basis (set to 48% to create space between items) */
-    box-sizing: border-box;
-}
-
-
-#hero-section {
-}
-
-#hero-image {
-    max-height: 60%;
-    object-fit: contain;
-    margin-top: auto;
-}
-
-#villain-section {
-}
-
+/* Screen Section */
 #screen-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
     height: 60vh;
     background-image: url("../images/arena.png");
     background-size: cover;
     background-position: bottom;
+}
+
+/* Character boxes and health bars */
+.characterBox {
+    flex: 1 1 48%;
+    box-sizing: border-box;
 }
 
 .healthbar {
@@ -65,5 +66,5 @@
     position: relative;
     overflow: hidden;
     z-index: 3;
-    transition: width 0.5s ease-in-out; /* Smooth transition for width change */
+    transition: width 0.5s ease-in-out;
 }
