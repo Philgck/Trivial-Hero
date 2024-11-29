@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let answer4 = document.getElementById('answer4');
     let questionCategory = document.getElementById('category-selector');
     let difficultySelector = document.getElementById('difficulty-selector');
+    /* Mike retry button test */
+    let retryButton = document.getElementById('retry-button');
 
     // Variables
     let incorrectAnswers = [];
@@ -27,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
     answer4.addEventListener('click', (e) => checkAnswer(e, currentDifficulty));
     questionCategory.addEventListener('change', fetchQuestions);
     difficultySelector.addEventListener('change', fetchQuestions);
+    /* Mike retry button test */
+    retryButton.addEventListener('click', () => location.reload());
 
     fetchQuestions();
 
@@ -205,6 +209,33 @@ document.addEventListener('DOMContentLoaded', function () {
         answer4.disabled = false;
     }
 
+    /* MIKE reset game function */
+    function resetGame() {
+        // Reset hero and villain health and status
+        hero.health = 100;
+        hero.isAlive = true;
+        villain.health = 100;
+        villain.isAlive = true;
+
+        // Update health bars
+        document.getElementById('hero-health').innerText = `${hero.health}%`;
+        document.getElementById('hero-health-bar').style.width = `${hero.health}%`;
+        document.getElementById('villain-health').innerText = `${villain.health}%`;
+        document.getElementById('villain-health-bar').style.width = `${villain.health}%`;
+
+        // Clear outcomes
+        document.getElementById('hero-outcome').innerHTML = '';
+        document.getElementById('villain-outcome').innerHTML = '';
+
+        // Reset questions and answers
+        currentQuestionIndex = 0;
+        questions = [];
+        fetchQuestions();
+
+        // Reset answer button styles
+        resetAnswerStyles();
+    }
+
 let hero = {
     /* To Do name chosen at same stage as difficulty or before game starts. If not generic hero? if names empty add default*/
     nameHero: "", 
@@ -271,7 +302,9 @@ function heroFight(heroDamage) {
         villain.health -= heroDamage;
 
         if (villain.health <= 0) {
-            villain.health = 0; // Ensure health doesn't drop below 0
+            /* MIKE health doesnt drop below 0 */
+            villain.health = 0; 
+            
             villain.isAlive = false;
             document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} has been defeated!`;
         }
@@ -303,7 +336,8 @@ function villainFight(villainDamage) {
         hero.health -= villainDamage;
 
         if (hero.health <= 0) {
-            hero.health = 0; // Ensure health doesn't drop below 0
+            /* MIKE health doesnt drop below 0 */
+            hero.health = 0; 
             hero.isAlive = false;
             document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} has been defeated!`;
         }
