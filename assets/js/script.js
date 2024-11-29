@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let answer4 = document.getElementById('answer4');
     let questionCategory = document.getElementById('category-selector');
     let difficultySelector = document.getElementById('difficulty-selector');
+    let heroName = document.getElementById('hero-name-input');
     /* Mike retry button test */
     let retryButton = document.getElementById('retry-button');
 
@@ -21,6 +22,64 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentDifficulty = "";
 
     let gameState = true;
+
+    let hero = {
+        /* To Do name chosen at same stage as difficulty or before game starts. If not generic hero? if names empty add default*/
+        nameHero: heroName.value || "Trivial Hero",
+        setName(heroName) {
+            this.nameHero = heroName;
+        },
+        health: 100, /* To DO displayed as health bar */
+        isAlive: true,
+        attacks: [
+            ["Trivia Tornado"],
+            ["Brain Buster"],
+            ["Fact Frenzy"],
+        ],
+
+        attack() {
+            let rand = Math.floor(Math.random() * this.attacks.length);
+            return [this.attacks[rand]];
+        }
+    };
+
+    let villain = {
+        nameVillain: "",
+        setName() {
+            const prefixes = ["Dr.", "Evil", "Master", "Lord", "Professor", "Baron", "Count", "Duke", "Emperor", "General", "King",
+                "Prince", "Queen", "Sir", "Warlord", "Wizard", "Overlord", "Commander", "Captain", "Chief"];
+            const suffixes = [
+                "the Terrible", "the Wicked", "the Cruel", "the Malevolent", "the Vicious", "the Sinister",
+                "the Ruthless", "the Merciless", "the Savage", "the Fierce", "the Brutal", "the Grim",
+                "the Dreadful", "the Fearsome", "the Horrible", "the Menacing", "the Nefarious",
+                "the Villainous", "the Malicious"
+            ];
+            const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+            const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+            const categoryWords = currentCategory.split(" ");
+            const lastWord = categoryWords[categoryWords.length - 1];
+            this.nameVillain = `${randomPrefix} "${lastWord}" ${randomSuffix}`;
+        },
+        health: 100,
+        isAlive: true,
+        attacks: [
+            ["Knowledge Knockout"],
+            ["Smarty Smash"],
+            ["Answer Avalanche"],
+        ],
+
+        /* code below for linking main attack to wrong answer in quiz 
+        
+        setAttackName(quizWrongAnswer) {
+            this.wrongAttackName = quizWrongAnswer;
+        }, 
+        */
+
+        attack() {
+            let rand = Math.floor(Math.random() * this.attacks.length);
+            return [this.attacks[rand]];
+        }
+    };
 
     /* Mike Delete? fullscreen button */
     /* let fullScreenArea = document.getElementById("fullscreen-area");
@@ -272,116 +331,70 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }); */
 
-let hero = {
-    /* To Do name chosen at same stage as difficulty or before game starts. If not generic hero? if names empty add default*/
-    nameHero: "", 
-    setName(playerName) {
-        this.nameHero = playerName;
-    },
-    health: 100, /* To DO displayed as health bar */
-    isAlive: true,
-    attacks: [
-        ["Trivia Tornado"],
-        ["Brain Buster"],
-        ["Fact Frenzy"],
-    ], 
-
-    attack() {
-        let rand = Math.floor(Math.random() * this.attacks.length);
-        return [this.attacks[rand]];
-    }
-};
-
-let villain = {
-    nameVillain: "", /* To Do name chosen randomly by API? */
-    setName(villainName) {
-        this.nameVillain = villainName;
-    },
-    health: 100, 
-    isAlive: true,
-    attacks: [
-        ["Knowledge Knockout"],
-        ["Smarty Smash"],
-        ["Answer Avalanche"],
-    ],
-    
-    /* code below for linking main attack to wrong answer in quiz 
-    
-    setAttackName(quizWrongAnswer) {
-        this.wrongAttackName = quizWrongAnswer;
-    }, 
-    */
-
-    attack() {
-        let rand = Math.floor(Math.random() * this.attacks.length);
-        return [this.attacks[rand]];
-    }
-};
-
-/**
- * Handles the hero's attack on the villain.
- * 
- * @function heroFight
- * @param {number} heroDamage - The amount of damage the hero deals.
- */
-function heroFight(heroDamage) {
-    if (hero.nameHero === "") {
-        hero.setName("Trivial Hero");
-    }
-    if (villain.nameVillain === "") {
-        villain.setName("Villain");
-    }
-
-    if (hero.isAlive && villain.isAlive) {
-        let heroAttack = hero.attack();
-        document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} attacked with ${heroAttack[0]} for ${heroDamage} damage!`;
-        villain.health -= heroDamage;
-
-        if (villain.health <= 0) {
-            /* MIKE health doesnt drop below 0 */
-            villain.health = 0; 
-            
-            villain.isAlive = false;
-            document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} has been defeated!`;
+    /**
+     * Handles the hero's attack on the villain.
+     * 
+     * @function heroFight
+     * @param {number} heroDamage - The amount of damage the hero deals.
+     */
+    function heroFight(heroDamage) {
+        if (hero.nameHero === "") {
+            hero.setName("Trivial Hero");
+        }
+        if (villain.nameVillain === "") {
+            villain.setName("Villain");
         }
 
-        // Update the villain's health display
-        document.getElementById('villain-health').innerText = `${villain.health}`;
-        const healthBar = document.getElementById('villain-health-bar');
-        healthBar.style.width = `${villain.health}%`;
-    }
-}
+        if (hero.isAlive && villain.isAlive) {
+            let heroAttack = hero.attack();
+            document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} attacked with ${heroAttack[0]} for ${heroDamage} damage!`;
+            villain.health -= heroDamage;
 
-/**
- * Handles the villain's attack on the hero.
- * 
- * @function villainFight
- * @param {number} villainDamage - The amount of damage the villain deals.
- */
-function villainFight(villainDamage) {
-    if (hero.nameHero === "") {
-        hero.setName("Trivial Hero");
-    }
-    if (villain.nameVillain === "") {
-        villain.setName("Villain");
-    }
+            if (villain.health <= 0) {
+                /* MIKE health doesnt drop below 0 */
+                villain.health = 0;
 
-    if (hero.isAlive && villain.isAlive) {
-        let villainAttack = villain.attack();
-        document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} attacked with ${villainAttack[0]} for ${villainDamage} damage!`;
-        hero.health -= villainDamage;
+                villain.isAlive = false;
+                document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} has been defeated!`;
+            }
 
-        if (hero.health <= 0) {
-            /* MIKE health doesnt drop below 0 */
-            hero.health = 0; 
-            hero.isAlive = false;
-            document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} has been defeated!`;
+            // Update the villain's health display
+            document.getElementById('villain-health').innerText = `${villain.health}`;
+            const healthBar = document.getElementById('villain-health-bar');
+            healthBar.style.width = `${villain.health}%`;
         }
-        // Update the villain's health display
-        document.getElementById('hero-health').innerText = `${hero.health}`;
-        const healthBar = document.getElementById('hero-health-bar');
-        healthBar.style.width = `${hero.health}%`;
     }
-}
+
+    /**
+     * Handles the villain's attack on the hero.
+     * 
+     * @function villainFight
+     * @param {number} villainDamage - The amount of damage the villain deals.
+     */
+    function villainFight(villainDamage) {
+        if (hero.nameHero === "") {
+            hero.setName("Trivial Hero");
+        }
+        if (villain.nameVillain === "") {
+            villain.setName("Villain");
+        }
+
+        if (hero.isAlive && villain.isAlive) {
+            let villainAttack = villain.attack();
+            document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} attacked with ${villainAttack[0]} for ${villainDamage} damage!`;
+            hero.health -= villainDamage;
+
+            if (hero.health <= 0) {
+                /* MIKE health doesnt drop below 0 */
+                hero.health = 0;
+                hero.isAlive = false;
+                document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} has been defeated!`;
+            }
+            // Update the villain's health display
+            document.getElementById('hero-health').innerText = `${hero.health}`;
+            const healthBar = document.getElementById('hero-health-bar');
+            healthBar.style.width = `${hero.health}%`;
+        }
+    }
 
 });
