@@ -462,10 +462,10 @@ function enableAnswers() {
     // Start game button hides the overlay
 
     document.getElementById('startGame').addEventListener('click', function () {
-        document.getElementById('fullscreen-overlay').style.display = 'none';
+        document.getElementById('fullscreen-overlay').style.visibility = 'hidden';
     });
 
     document.getElementById('startAgain').addEventListener('click', function () {
-        document.getElementById('fullscreen-overlay').style.display = 'block';
+        document.getElementById('fullscreen-overlay').style.visibility = 'visible';
     });
 });
