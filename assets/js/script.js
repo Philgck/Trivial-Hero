@@ -271,6 +271,7 @@ function heroFight(heroDamage) {
         villain.health -= heroDamage;
 
         if (villain.health <= 0) {
+            villain.health = 0; // Ensure health doesn't drop below 0
             villain.isAlive = false;
             document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} has been defeated!`;
         }
@@ -302,6 +303,7 @@ function villainFight(villainDamage) {
         hero.health -= villainDamage;
 
         if (hero.health <= 0) {
+            hero.health = 0; // Ensure health doesn't drop below 0
             hero.isAlive = false;
             document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} has been defeated!`;
         }
