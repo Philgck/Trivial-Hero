@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentCategory = "";
     let currentDifficulty = "";
 
+    let gameState = true;
+
     // Event listeners
     answer1.addEventListener('click', (e) => checkAnswer(e, currentDifficulty));
     answer2.addEventListener('click', (e) => checkAnswer(e, currentDifficulty));
@@ -272,6 +274,11 @@ function heroFight(heroDamage) {
             villain.isAlive = false;
             document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} has been defeated!`;
         }
+
+        // Update the villain's health display
+        document.getElementById('villain-health').innerText = `${villain.health}`;
+        const healthBar = document.getElementById('villain-health-bar');
+        healthBar.style.width = `${villain.health}%`;
     }
 }
 
@@ -298,6 +305,10 @@ function villainFight(villainDamage) {
             hero.isAlive = false;
             document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} has been defeated!`;
         }
+        // Update the villain's health display
+        document.getElementById('hero-health').innerText = `${hero.health}`;
+        const healthBar = document.getElementById('hero-health-bar');
+        healthBar.style.width = `${hero.health}%`;
     }
 }
 
