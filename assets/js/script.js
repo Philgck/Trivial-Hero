@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let questionCategory = document.getElementById('category-selector');
     let difficultySelector = document.getElementById('difficulty-selector');
     let heroName = document.getElementById('hero-name-input');
-    let heroTitle= document.getElementById('hero-name');
-    let villainTitle = document.getElementById('villain-name');    
+    let heroTitle = document.getElementById('hero-name');
+    let villainTitle = document.getElementById('villain-name');
     /* Mike retry button test */
     let retryButton = document.getElementById('retry-button');
 
@@ -256,24 +256,24 @@ document.addEventListener('DOMContentLoaded', function () {
  * 
  * @function disableAnswers
  */
-function disableAnswers() {
-    answer1.disabled = true;
-    answer2.disabled = true;
-    answer3.disabled = true;
-    answer4.disabled = true;
-}
+        function disableAnswers() {
+            answer1.disabled = true;
+            answer2.disabled = true;
+            answer3.disabled = true;
+            answer4.disabled = true;
+        }
 
-/**
- * Enables the answer buttons to allow user interaction.
- * 
- * @function enableAnswers
- */
-function enableAnswers() {
-    answer1.disabled = false;
-    answer2.disabled = false;
-    answer3.disabled = false;
-    answer4.disabled = false;
-}
+        /**
+         * Enables the answer buttons to allow user interaction.
+         * 
+         * @function enableAnswers
+         */
+        function enableAnswers() {
+            answer1.disabled = false;
+            answer2.disabled = false;
+            answer3.disabled = false;
+            answer4.disabled = false;
+        }
 
         // Check the difficulty of the question and log the corresponding damage value
         // Damage varies based on the difficulty level
@@ -425,12 +425,17 @@ function enableAnswers() {
             document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} attacked with ${heroAttack[0]} for ${heroDamage} damage!`;
             villain.health -= heroDamage;
 
-            if (villain.health <= 0) {
-                /* MIKE health doesnt drop below 0 */
-                villain.health = 0;
+            // Update the hero's health display
+            document.getElementById('hero-health').innerText = `${hero.health}`;
+            const heroHealthBar = document.getElementById('hero-health-bar');
+            heroHealthBar.style.width = `${hero.health}%`;
 
+            if (villain.health <= 0) {
+                villain.health = 0;
                 villain.isAlive = false;
                 document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} has been defeated!`;
+            } else {
+                randomEvent();
             }
 
             // Update the villain's health display
@@ -469,6 +474,45 @@ function enableAnswers() {
             document.getElementById('hero-health').innerText = `${hero.health}`;
             const healthBar = document.getElementById('hero-health-bar');
             healthBar.style.width = `${hero.health}%`;
+        }
+    }
+
+    // Random events
+
+    function randomEvent() {
+        const randomEventChance = Math.random();
+        if (randomEventChance < 0.1) { // 10% chance for a critical hit
+            let randomEvent = "Critical Hit!";
+            document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
+            villain.health -= heroDamage * 0.5; // Extra 50% damage
+        } else if (randomEventChance < 0.2) { // 10% chance to heal hero
+            let randomEvent = `${hero.nameHero} feels invigorated and heals for 10hp!`;
+            document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
+            hero.health += 10;
+            if (hero.health > 100) hero.health = 100; // Cap health at 100
+        } else if (randomEventChance < 0.3) { // 10% chance to heal villain
+            let randomEvent = `${hero.nameHero} felt guilty and healed ${villain.nameVillain} for 10hp!`;
+            document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
+            villain.health += 10;
+            if (villain.health > 100) villain.health = 100; // Cap health at 100
+        } else if (randomEventChance < 0.4) { // 10% chance to miss attack
+            let randomEvent = "Attack missed!";
+            document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
+            villain.health += heroDamage; // Negate the damage
+        } else if (randomEventChance < 0.5) { // 10% chance to change question category
+            let categories = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32"];
+            let randomCategory = categories[Math.floor(Math.random() * categories.length)];
+            questionCategory.value = randomCategory;
+            fetchQuestions();
+            let randomEvent = `Question category changed to ${questionCategory.options[questionCategory.selectedIndex].text}!`;
+            document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
+        } else if (randomEventChance < 0.6) { // 10% chance to change question difficulty
+            let difficulties = ["easy", "medium", "hard"];
+            let randomDifficulty = difficulties[Math.floor(Math.random() * difficulties.length)];
+            difficultySelector.value = randomDifficulty;
+            fetchQuestions();
+            let randomEvent = `Question difficulty changed to ${difficultySelector.value}!`;
+            document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
         }
     }
 
