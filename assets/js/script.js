@@ -213,6 +213,8 @@ document.addEventListener('DOMContentLoaded', function () {
      * @param {Event} e - The event object representing the click event.
      */
     function checkAnswer(e, currentDifficulty) {
+        disableAnswers(); // Disable the answers when one is selected
+
         if (e.target.innerHTML === correctAnswer) {
             e.target.style.backgroundColor = 'green';
         } else {
@@ -235,6 +237,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 answer4.style.color = 'black';
             }
         }
+
+        /**
+ * Disables the answer buttons to prevent further clicks.
+ * 
+ * @function disableAnswers
+ */
+function disableAnswers() {
+    answer1.disabled = true;
+    answer2.disabled = true;
+    answer3.disabled = true;
+    answer4.disabled = true;
+}
+
+/**
+ * Enables the answer buttons to allow user interaction.
+ * 
+ * @function enableAnswers
+ */
+function enableAnswers() {
+    answer1.disabled = false;
+    answer2.disabled = false;
+    answer3.disabled = false;
+    answer4.disabled = false;
+}
 
         // Check the difficulty of the question and log the corresponding damage value
         // Damage varies based on the difficulty level
