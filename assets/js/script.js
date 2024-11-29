@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             heroTitle.innerHTML = this.nameHero;
 
         },
-        health: 100, /* To DO displayed as health bar */
+        health: 100,
         isAlive: true,
         attacks: [
             ["Trivia Tornado"],
@@ -197,12 +197,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 "the Dreadful", "the Fearsome", "the Horrible", "the Menacing", "the Nefarious",
                 "the Villainous", "the Malicious"
             ];
+
+            // Generate a random prefix and suffix for the villain's name
             const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
             const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
             const categoryWords = currentCategory.split(" ");
             const lastWord = categoryWords[categoryWords.length - 1];
+            // Combine the random prefix, last word of the category, and random suffix to create the villain's name
             villain.nameVillain = `${randomPrefix} "${lastWord}" ${randomSuffix}`;
             villainTitle.innerHTML = villain.nameVillain;
+
+            // Set the hero's name dynamically based on the user input
+            if (!hero.nameHero) {
+                hero.nameHero = "Trivial Hero";
+            }
+            heroTitle.innerHTML = hero.nameHero;
 
             enableAnswers();
         } catch (error) {
