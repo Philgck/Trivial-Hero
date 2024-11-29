@@ -14,33 +14,42 @@
 <body>
     <main>
         <section id="game-area" class="border border-primary p-3">
-            <div class="container border border-primary p-3" id="screen-section">
-                <div class="flex-container">
-                    <div class="flex-item border border-primary p-3" id="hero-section">
+            <div class="container border border-primary p-3 d-flex" id="screen-section">
+                <div class="flex-item border border-primary p-3 d-flex flex-column" id="hero-section">
+                    <div style="flex: 0 0 20%;">
                         <h2 id="hero-name">Hero</h2>
                         <div class="healthbar">
-                            <p class="health-number" id="hero-health">50%</p>
-                            <span style="width: 50%" id="hero-health-bar"></span>
+                            <p class="health-number" id="hero-health">100</p>
+                            <span style="width: 100%" id="hero-health-bar"></span>
                         </div>
+                    </div>
+                    <div class="d-flex align-items-end" style="flex: 0 0 80%;">
                         <img src="assets/phil/images/hero.gif" alt="Hero Image" class="img-fluid" id="hero-image">
-                        <!-- Hero content goes here -->
                     </div>
-                    <div class="flex-item border border-primary p-3" id="villain-section">
+                    <!-- Hero content goes here -->
+                </div>
+                <div class="flex-item border border-primary p-3 d-flex flex-column" id="villain-section">
+                    <div style="flex: 0 0 20%;">
                         <h2 id="villain-name">Villain</h2>
-                        <div class="healthbar" style="direction:rtl;">
-                            <p class="health-number" id="villain-health">50%</p>
-                            <span style="width: 50%" id="villain-health-bar"></span>
+                        <div class="healthbar" >
+                            <p class="health-number" id="villain-health">100</p>
+                            <span style="width: 100%" id="villain-health-bar"></span>
                         </div>
-                        <!-- Villain content goes here -->
                     </div>
+                    <div class="d-flex align-items-end" style="flex: 0 0 80%;">
+                        <img src="assets/phil/images/hero.gif" alt="Hero Image" class="img-fluid" id="hero-image">
+                    </div>
+                    <!-- Villain content goes here -->
                 </div>
             </div>
         </section>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 border border-primary p-3" id="fight-section">
-                    <p id="hero-outcome">Hero Outcome</p>
-                    <p id="villain-outcome">Villain Outcome</p>
+                <div class="col-md-6 border border-primary p-3" id="fight-section">
+                    <p id="hero-outcome"></p>
+                </div>
+                    <div class="col-md-6 border border-primary p-3" id="fight-section">
+                    <p id="villain-outcome"></p>
                 </div>
             </div>
         </div>
@@ -139,8 +148,7 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/956711f51a.js" crossorigin="anonymous"></script>
 
-    <script src="assets/dan/js/script.js"></script>
-    <script src="assets/mike/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 
 
 </body>
