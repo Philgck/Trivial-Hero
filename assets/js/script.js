@@ -397,4 +397,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Start game button hides the overlay
+
+    document.getElementById('startGame').addEventListener('click', function () {
+        document.getElementById('fullscreen-overlay').style.display = 'none';
+    });
+
+    document.getElementById('startAgain').addEventListener('click', function () {
+        document.getElementById('fullscreen-overlay').style.display = 'block';
+    });
 });
