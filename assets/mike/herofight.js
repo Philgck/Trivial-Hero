@@ -4,8 +4,13 @@ let hero = {
     setName(playerName) {
         this.nameHero = playerName;
     },
-    health: 100, /* To DO displayed as health bar */
-    document.getElementById('hero-health').innerText = `Health: ${this.health}`;
+    health: 100, 
+    /* health bar link */
+    updateHealthBar() {
+        const healthPercentage = (this.health / 100) * 100;
+        document.getElementById('hero-health').innerText = `${this.health}%`;
+        document.getElementById('hero-health-bar').style.width = `${healthPercentage}%`;
+    },
     isAlive: true,
     attacks: [
         ["Trivia Tornado", 10],
@@ -25,7 +30,12 @@ let villain = {
         this.nameVillain = villainName;
     },
     health: 100, 
-    document.getElementById('hero-health').innerText = `Health: ${this.health}`;
+    /* health bar link */
+    updateHealthBar() {
+        const healthPercentage = (this.health / 100) * 100;
+        document.getElementById('villain-health').innerText = `${this.health}%`;
+        document.getElementById('villain-health-bar').style.width = `${healthPercentage}%`;
+    },
     isAlive: true,
     attacks: [
         ["Knowledge Knockout", 10],
@@ -46,35 +56,40 @@ let villain = {
     }
 };
 
-function heroFight {
+function heroFight() {
     while (hero.isAlive && villain.isAlive) {
         let heroAttack = hero.attack(damage);
         /* display attack on screen */
+        /* The += operator appends the new content to the existing content of the element. This means that the new attack message will be added to the end of the current content in the screen-section element. */
         document.getElementById('screen-section').innerHTML += `${hero.name} attacked with ${heroAttack[0]} for ${heroAttack[1]} damage!<br>`;
         villain.health -= heroAttack[1];
+        villain.updateHealthBar();
 
         if (villain.health <= 0) {
             villain.isAlive = false;
             /* display victory on screen */
             document.getElementById('screen-section').innerHTML += `${villain.name} has been defeated!`;
-        },
+            break;
+        }
     }
 };
 
-function villainFight {
+function villainFight() {
     while (hero.isAlive && villain.isAlive) {
 
         let villainAttack = villain.attack(damage);
         /* display attack on screen */
+        /* The += operator appends the new content to the existing content of the element. This means that the new attack message will be added to the end of the current content in the screen-section element. */
         document.getElementById('screen-section').innerHTML += `${villain.name} attacked with ${villainAttack[0]} for ${villainAttack[1]} damage!<br>`;
         hero.health -= villainAttack[1];
+        hero.updateHealthBar();
 
         if (hero.health <= 0) {
             hero.isAlive = false;
             /* display defeat on screen */
             document.getElementById('screen-section').innerHTML += `${hero.name} has been defeated!`;
-        },
+            break;
+        }
     }
 };
 
-/* why wont this merge? */

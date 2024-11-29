@@ -13,14 +13,15 @@
 
 <body>
     <main>
+      <!-- MIKE delete? Fullscreen--> <!-- <div id="fullscreen-area"> -->
         <section id="game-area" class="border border-primary p-3">
             <div class="container border border-primary p-3 d-flex" id="screen-section">
                 <div class="flex-item border border-primary p-3 d-flex flex-column" id="hero-section">
                     <div style="flex: 0 0 20%;">
                         <h2 id="hero-name">Hero</h2>
                         <div class="healthbar">
-                            <p class="health-number" id="hero-health">50%</p>
-                            <span style="width: 50%" id="hero-health-bar"></span>
+                            <p class="health-number" id="hero-health">100</p>
+                            <span style="width: 100%" id="hero-health-bar"></span>
                         </div>
                     </div>
                     <div class="d-flex align-items-end" style="flex: 0 0 80%;">
@@ -32,8 +33,8 @@
                     <div style="flex: 0 0 20%;">
                         <h2 id="villain-name">Villain</h2>
                         <div class="healthbar" >
-                            <p class="health-number" id="villain-health">50%</p>
-                            <span style="width: 50%" id="villain-health-bar"></span>
+                            <p class="health-number" id="villain-health">100</p>
+                            <span style="width: 100%" id="villain-health-bar"></span>
                         </div>
                     </div>
                     <div class="d-flex align-items-end" style="flex: 0 0 80%;">
@@ -45,8 +46,10 @@
         </section>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 border border-primary p-3" id="fight-section">
+                <div class="col-md-6 border border-primary p-3" id="fight-section">
                     <p id="hero-outcome"></p>
+                </div>
+                    <div class="col-md-6 border border-primary p-3" id="fight-section">
                     <p id="villain-outcome"></p>
                 </div>
             </div>
@@ -113,6 +116,10 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                                <!-- Mike retry button -->
+                                <button type="button" class="btn btn-secondary" id="retry-button">Retry</button>
+                                <!-- Mike fullscreen button TEST-->
+                                <button id="fsbtn">Go Fullscreen</button> 
                             </div>
                         </div>
                     </div>
@@ -140,6 +147,7 @@
         </div>
         </div>
         </section>
+    <!-- MIKE delete? fullscreen </div> -->
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
