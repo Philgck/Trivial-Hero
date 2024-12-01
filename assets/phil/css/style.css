@@ -1,3 +1,18 @@
+/* Fonts and variables */
+
+:root {
+    --neon-blue: #00FFFF;
+    --neon-pink: #FF00FF;
+    --gun-grey: #8D918D;
+}
+
+.audiowide-regular {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
 /* Fullscreen Overlay */
 
 #fullscreen-overlay {
@@ -91,10 +106,30 @@ body {
 /* Some contrast so the site is still useable */
 
 .text-areas {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: black;
 }
 
 /* Media queries */
+
+/* General text styling */
+h1, h2, h3, h4, h5, h6, p, span, a, li {
+    font-family: "Audiowide", sans-serif;
+    color: var(--neon-blue);
+    text-shadow: 2px 2px var(--neon-pink);
+}
+
+/* Override Bootstrap buttons */
+.btn {
+    background: none !important;
+    border: 2px solid var(--neon-pink) !important;
+    color: var(--neon-pink) !important;
+    text-shadow: none !important;
+}
+
+.btn:hover, .btn:focus {
+    background: var(--neon-pink) !important;
+    color: white !important;
+}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
