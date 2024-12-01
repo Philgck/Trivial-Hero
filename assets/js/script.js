@@ -116,11 +116,11 @@ document.addEventListener('DOMContentLoaded', function () {
     questionCategory.addEventListener('change', fetchQuestions);
     difficultySelector.addEventListener('change', fetchQuestions);
     heroName.addEventListener('change', () => hero.setName(heroName.value));
-    /* Mike retry button test */
-    retryButton.addEventListener('click', () => location.reload());
     document.getElementById('startGame').addEventListener('click', startGame);
     document.getElementById('startAgain').addEventListener('click', resetGame);
-
+    document.getElementById('menu').addEventListener('click', function () {
+        document.getElementById('fullscreen-overlay').style.visibility = 'visible';
+    });
 
     function startGame() {
         // Hide the start screen and show the game screen
