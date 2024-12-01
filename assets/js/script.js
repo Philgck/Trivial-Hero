@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Hide the start screen and show the game screen
         document.getElementById('fullscreen-overlay').style.visibility = 'hidden';
         gameState = true;
-        fetchQuestions();
+        resetGame();
     }
 
     function resetGame() {
@@ -164,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * 
      * @async
      * @function fetchQuestions
-     * @returns {Promise<void>} A promise that resolves when the questions have been fetched and stored.
      * @throws Will log an error message if the fetch request fails.
      */
     async function fetchQuestions() {
