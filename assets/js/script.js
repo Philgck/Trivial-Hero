@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentCategory = "";
     let currentDifficulty = "";
 
-    let gameState = true;
+    let gameState = false;
 
     let hero = {
         nameHero: heroName.value || "Trivial Hero",
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isAlive: true,
         attacks: [
             ["Trivia Tornado"],
-            ["Brain Buster"],
+            ["Brain Breaker"],
             ["Fact Frenzy"],
             ["Quiz Quake"],
             ["Trivia Tsunami"],
@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', function () {
             ["Knowledge Knockdown"],
             ["Wisdom Whirlwind"],
             ["Insight Impact"],
-            ["Logic Lunge"],
-            ["Reasoning Rumble"],
-            ["Intellect Inferno"],
+            ["Logic Lash"],
+            ["Reasoning Riot"],
+            ["Intellect Blast"],
             ["Cognition Clash"],
             ["Mind Meltdown"]
         ],
@@ -71,23 +71,23 @@ document.addEventListener('DOMContentLoaded', function () {
             ["Knowledge Knockout"],
             ["Smarty Smash"],
             ["Answer Avalanche"],
-            ["Quiz Quake"],
-            ["Trivia Tsunami"],
-            ["Puzzle Pummel"],
-            ["Conundrum Crush"],
-            ["Riddle Rampage"],
-            ["Enigma Eruption"],
-            ["Mystery Maelstrom"],
-            ["Paradox Punch"],
-            ["Brainwave Blitz"],
-            ["Knowledge Knockdown"],
-            ["Wisdom Whirlwind"],
+            ["Quiz Breaker"],
+            ["Trivia Trip"],
+            ["Puzzle Punch"],
+            ["Conundrum Crunch"],
+            ["Riddle Strike"],
+            ["Enigma Explosion"],
+            ["Mystery Melter"],
+            ["Pondering Punch"],
+            ["Brain Blender"],
+            ["Knowledge Knockout"],
+            ["WWhirling Wisdon"],
             ["Insight Impact"],
             ["Logic Lunge"],
             ["Reasoning Rumble"],
             ["Intellect Inferno"],
             ["Cognition Clash"],
-            ["Mind Meltdown"]
+            ["Meltdown Mayhem"]
         ],
 
         /* code below for linking main attack to wrong answer in quiz 
@@ -118,8 +118,46 @@ document.addEventListener('DOMContentLoaded', function () {
     heroName.addEventListener('change', () => hero.setName(heroName.value));
     /* Mike retry button test */
     retryButton.addEventListener('click', () => location.reload());
+    document.getElementById('startGame').addEventListener('click', startGame);
+    document.getElementById('startAgain').addEventListener('click', resetGame);
 
-    fetchQuestions();
+
+    function startGame() {
+        // Hide the start screen and show the game screen
+        document.getElementById('fullscreen-overlay').style.visibility = 'hidden';
+        gameState = true;
+        fetchQuestions();
+    }
+
+    function resetGame() {
+        // Show the start screen and hide the game screen
+        document.getElementById('fullscreen-overlay').style.visibility = 'visible';
+
+        // Reset hero and villain health and status
+
+        hero.health = 100;
+        hero.isAlive = true;
+        villain.health = 100;
+        vaillain.isAlive = true;
+
+        // Update health bars
+        document.getElementById('hero-health').innerText = `${hero.health}%`;
+        document.getElementById('hero-health-bar').style.width = `${hero.health}%`;
+        document.getElementById('villain-health').innerText = `${villain.health}%`;
+        document.getElementById('villain-health-bar').style.width = `${villain.health}%`;
+
+        // Clear outcomes
+        document.getElementById('hero-outcome').innerHTML = '';
+        document.getElementById('villain-outcome').innerHTML = '';
+
+        // Reset questions and answers
+        currentQuestionIndex = 0;
+        questions = [];
+        fetchQuestions();
+
+        // Reset answer button styles
+        resetAnswerStyles();
+    }
 
     /**
      * Fetches 50 questions from the Open Trivia Database API and stores them.
@@ -410,7 +448,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * Handles the hero's attack on the villain.
      * 
      * @function heroFight
-     * @param {number} heroDamage - The amount of damage the hero deals.
      */
     function heroFight(heroDamage) {
         if (hero.nameHero === "") {
@@ -435,6 +472,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 villain.isAlive = false;
                 document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} has been defeated!`;
             } else {
+                // Trigger a random event if the villain is still alive. Only triggers on hero attacks (right answers).
                 randomEvent();
             }
 
@@ -449,7 +487,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * Handles the villain's attack on the hero.
      * 
      * @function villainFight
-     * @param {number} villainDamage - The amount of damage the villain deals.
      */
     function villainFight(villainDamage) {
         if (hero.nameHero === "") {
@@ -479,6 +516,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Random events
 
+    /**
+     * Triggers a random event with various possible outcomes for the hero and villain.
+     * 
+     * The function generates a random number to determine the event that occurs:
+     * - 10% chance for a critical hit, dealing extra damage to the villain.
+     * - 10% chance to heal the hero by 10 health points.
+     * - 10% chance to heal the villain by 10 health points.
+     * - 10% chance for the hero's attack to miss, negating the damage.
+     * - 10% chance to change the question category.
+     * - 10% chance to change the question difficulty.
+     * 
+     * The outcomes are displayed in the 'hero-outcome' element and the health values are capped at 100.
+     * 
+     * @function randomEvent
+     */
     function randomEvent() {
         const randomEventChance = Math.random();
         if (randomEventChance < 0.1) { // 10% chance for a critical hit
@@ -504,25 +556,15 @@ document.addEventListener('DOMContentLoaded', function () {
             let randomCategory = categories[Math.floor(Math.random() * categories.length)];
             questionCategory.value = randomCategory;
             fetchQuestions();
-            let randomEvent = `Question category changed to ${questionCategory.options[questionCategory.selectedIndex].text}!`;
+            let randomEvent = `In an attempt to confuse our hero the villain sets the question category to ${questionCategory.options[questionCategory.selectedIndex].text}!`;
             document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
         } else if (randomEventChance < 0.6) { // 10% chance to change question difficulty
             let difficulties = ["easy", "medium", "hard"];
             let randomDifficulty = difficulties[Math.floor(Math.random() * difficulties.length)];
             difficultySelector.value = randomDifficulty;
             fetchQuestions();
-            let randomEvent = `Question difficulty changed to ${difficultySelector.value}!`;
+            let randomEvent = `In an attempt to confuse our hero the villain sets the question difficulty to ${difficultySelector.value}!`;
             document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
         }
     }
-
-    // Start game button hides the overlay
-
-    document.getElementById('startGame').addEventListener('click', function () {
-        document.getElementById('fullscreen-overlay').style.visibility = 'hidden';
-    });
-
-    document.getElementById('startAgain').addEventListener('click', function () {
-        document.getElementById('fullscreen-overlay').style.visibility = 'visible';
-    });
 });
