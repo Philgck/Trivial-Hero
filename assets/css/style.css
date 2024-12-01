@@ -36,6 +36,23 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
     align-items: center;
 }
 
+/* Header Section to orient fullscreen button to right */
+
+header {
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header .btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
 body {
     background-image: url("../images/background.jpg");
     background-size: cover;
