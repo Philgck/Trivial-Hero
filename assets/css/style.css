@@ -113,7 +113,6 @@ body {
 /* Override Bootstrap buttons */
 
 .btn {
-    background: none !important;
     border: 2px solid var(--neon-pink) !important;
     color: var(--neon-pink) !important;
     text-shadow: none !important;
