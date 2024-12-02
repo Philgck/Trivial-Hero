@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     /* Mike Delete? fullscreen button */
-    /* let fullScreenArea = document.getElementById("fullscreen-area");
-    let fsbtn = document.getElementById("fsbtn"); */
+    let fullScreenArea = document.getElementById("fullscreen-area");
+    let fsbtn = document.getElementById("fsbtn");
 
 
     // Event listeners
@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function () {
         answer4.disabled = false;
     }
 
-    /* MIKE reset game function */
+    /* reset game function */
     function resetGame() {
         // Reset hero and villain health and status
         hero.health = 100;
@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* MIKE delete? fullscreen button test */
-    /* fsbtn.addEventListener("click", () => {
+    fsbtn.addEventListener("click", () => {
         if (fsbtn.textContent == "Go Fullscreen") {
             if (fullScreenArea.requestFullscreen) {
                 fullScreenArea.requestFullscreen();
@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function () {
             fsbtn.textContent = "Go Fullscreen";
 
         }
-    }); */
+    });
 
     /**
      * Handles the hero's attack on the villain.
