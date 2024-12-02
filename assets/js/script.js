@@ -206,6 +206,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const questionData = questions[currentQuestionIndex];
         currentQuestionIndex++;
 
+        // Check if the hero or villain has been defeated and end the game if so
+        if (!hero.isAlive || !villain.isAlive) {
+            disableAnswers();
+            question.innerHTML = "Game ended";
+            return;
+        }
+
         disableAnswers();
         try {
             question.innerHTML = questionData.question;
@@ -533,7 +540,7 @@ document.addEventListener('DOMContentLoaded', function () {
             heroHealthImage();
 
             if (hero.health <= 0) {
-                /* MIKE health doesnt drop below 0 */
+                /* health doesnt drop below 0 */
                 hero.health = 0;
                 hero.isAlive = false;
                 document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} has been defeated!`;
