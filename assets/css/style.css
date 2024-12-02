@@ -11,28 +11,12 @@
     font-weight: 400;
     font-style: normal;
   }
-  
-
-/* Fonts and variables */
-
-:root {
-    --neon-blue: #00FFFF;
-    --neon-pink: #FF00FF;
-    --gun-grey: #8D918D;
-}
-
-.audiowide-regular {
-    font-family: "Audiowide", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
 
 /* General text styling */
 
 h1, h2, h3, h4, h5, h6, p, span, a, li {
     font-family: "Audiowide", sans-serif;
-    color: var(--neon-blue);
-    text-shadow: 2px 2px var(--neon-pink);
+    color: var(--neon-pink);
 }
 
 /* Fullscreen Overlay */
@@ -89,10 +73,12 @@ body {
 /* Character boxes and health bars */
 #hero-section,
 #villain-section {
-    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 20px;
-    border-radius: 10px;
+}
+
+.character-info {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .characterBox {
@@ -138,8 +124,14 @@ body {
 }
 
 #villain-image {
-    transform: scaleX(-1);
     justify-content: right;
+    width: 200px;
+    height: 200px;
+}
+
+#hero-image {
+    width: 200px;
+    height: 200px;
 }
 
 /* Override Bootstrap buttons */
@@ -162,26 +154,6 @@ body {
 }
 
 /* Media queries */
-
-/* General text styling */
-h1, h2, h3, h4, h5, h6, p, span, a, li {
-    font-family: "Audiowide", sans-serif;
-    color: var(--neon-blue);
-    text-shadow: 2px 2px var(--neon-pink);
-}
-
-/* Override Bootstrap buttons */
-.btn {
-    background: none !important;
-    border: 2px solid var(--neon-pink) !important;
-    color: var(--neon-pink) !important;
-    text-shadow: none !important;
-}
-
-.btn:hover, .btn:focus {
-    background: var(--neon-pink) !important;
-    color: white !important;
-}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
@@ -206,7 +178,8 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
 
     #hero-image,
     #villain-image {
-        visibility: hidden;
+        height: 100px;
+        width: 100px;
     }
 
 }
@@ -216,6 +189,12 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
     #screen-section {
         flex-direction: row;
         height: 50vh;
+    }
+
+    #hero-image,
+    #villain-image {
+        height: 150px;
+        width: 150px;
     }
 
 }
