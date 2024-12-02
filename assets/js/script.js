@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let heroName = document.getElementById('hero-name-input');
     let heroTitle = document.getElementById('hero-name');
     let villainTitle = document.getElementById('villain-name');
-    /* Mike retry button test */
+    /* retry button */
     let retryButton = document.getElementById('retry-button');
 
     // Variables
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    /* Mike Delete? fullscreen button */
+    /* fullscreen button */
     let fullScreenArea = document.getElementById("fullscreen-area");
     let fsbtn = document.getElementById("fsbtn");
 
