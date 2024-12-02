@@ -21,9 +21,9 @@
         <div id="fullscreen-overlay">
             <h1 style="color: white;">Trivial Hero</h1>
             <div style="width: 30%;">
-                <button type="button" class="btn btn-light m-2 w-100" id="startGame">Start Game</button>
+                <button type="button" class="btn btn-primary-outline m-2 w-100" id="startGame">Start Game</button>
                 <!-- Instruction button and modal -->
-                <button type="button" class="btn btn-light m-2 w-100" id="instructions" data-bs-toggle="modal"
+                <button type="button" class="btn btn-primary-outline m-2 w-100" id="instructions" data-bs-toggle="modal"
                     data-bs-target="#instructionsModal">Instructions</button>
                 <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel"
                     aria-hidden="true">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary m-2 w-100" data-bs-toggle="modal"
+                <button type="button" class="btn btn-primary-outline m-2 w-100" data-bs-toggle="modal"
                     data-bs-target="#settingsModal">
                     <i class="fa-solid fa-gear" id="settings-button"> Settings</i></button>
                 <!-- Modal -->
@@ -136,36 +136,36 @@
         </div>
         <!-- MIKE delete? Fullscreen--> <!-- <div id="fullscreen-area"> -->
         <header class="bg-dark text-white text-center py-3">
-            <h1>Trivial hero</h1>
+            <h1>Trivial Hero</h1>
             <button type="button" class="btn btn-secondary flex-fill m-1" id="fsbtn">Go Fullscreen</button>
         </header>
         <section id="game-area" class="p-3">
             <div id="fullscreen-area">
-                <section id="game-area" class="border border-primary p-3">
+                <section id="game-area" class="p-3">
                     <div class="container border border-primary p-3 d-flex" id="screen-section">
-                        <div class="characterBox border border-primary p-3 d-flex flex-column" id="hero-section">
-                            <div style="flex: 0 0 20%;">
+                        <div class="characterBox p-3 d-flex flex-column flex-shrink" id="hero-section">
+                            <div class="character-info">
                                 <div class="healthbar mb-2">
                                     <p class="health-number" id="hero-health">100</p>
                                     <span style="width: 100%" id="hero-health-bar"></span>
                                 </div>
                                 <h2 id="hero-name">Trivial Hero</h2>
                             </div>
-                            <div class="d-flex align-items-end" style="flex: 0 0 80%;">
+                            <div class="d-flex align-items-end flex-grow-1 flex-shrink">
                                 <img src="assets/images/hero.gif" alt="Hero Image" class="img-fluid" id="hero-image">
                             </div>
                         </div>
                         <!-- Villain content goes here -->
-                        <div class="characterBox border border-primary p-3 d-flex flex-column" id="villain-section">
-                            <div style="flex: 0 0 20%;">
+                        <div class="characterBox p-3 d-flex flex-column flex-shrink" id="villain-section">
+                            <div class="character-info">
                                 <div class="healthbar mb-2">
                                     <p class="health-number" id="villain-health">100</p>
                                     <span style="width: 100%" id="villain-health-bar"></span>
                                 </div>
                                 <h2 id="villain-name">Villain</h2>
                             </div>
-                            <div class="d-flex align-items-end" style="flex: 0 0 80%;">
-                                <img src="assets/images/hero.gif" alt="Hero Image" class="img-fluid" id="villain-image">
+                            <div class="d-flex align-items-end flex-grow-1 flex-shrink">
+                                <img src="assets/images/villain1.gif" alt="Villain Image" class="img-fluid" id="villain-image">
                             </div>
                         </div>
                     </div>
@@ -190,16 +190,16 @@
                     </div>
                     <div class="row justify-content-center border border-primary p-3 text-areas">
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-primary w-100" id="answer1">Answer 1</button>
+                            <button type="button" class="btn btn-outline-primary w-100" id="answer1">Answer 1</button>
                         </div>
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-primary w-100" id="answer2">Answer 2</button>
+                            <button type="button" class="btn btn-outline-primary w-100" id="answer2">Answer 2</button>
                         </div>
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-primary w-100" id="answer3">Answer 3</button>
+                            <button type="button" class="btn btn-outline-primary w-100" id="answer3">Answer 3</button>
                         </div>
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-primary w-100" id="answer4">Answer 4</button>
+                            <button type="button" class="btn btn-outline-primary w-100" id="answer4">Answer 4</button>
                         </div>
                     </div>
                 </div>
