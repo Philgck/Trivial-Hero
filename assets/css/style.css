@@ -16,8 +16,7 @@
 
 h1, h2, h3, h4, h5, h6, p, span, a, li {
     font-family: "Audiowide", sans-serif;
-    color: var(--neon-blue);
-    text-shadow: 2px 2px var(--neon-pink);
+    color: var(--neon-pink);
 }
 
 /* Fullscreen Overlay */
@@ -74,10 +73,12 @@ body {
 /* Character boxes and health bars */
 #hero-section,
 #villain-section {
-    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 20px;
-    border-radius: 10px;
+}
+
+.character-info {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .characterBox {
@@ -123,14 +124,19 @@ body {
 }
 
 #villain-image {
-    transform: scaleX(-1);
     justify-content: right;
+    width: 200px;
+    height: 200px;
+}
+
+#hero-image {
+    width: 200px;
+    height: 200px;
 }
 
 /* Override Bootstrap buttons */
 
 .btn {
-    background: none !important;
     border: 2px solid var(--neon-pink) !important;
     color: var(--neon-pink) !important;
     text-shadow: none !important;
@@ -147,6 +153,17 @@ body {
     background-color: black;
 }
 
+.hero-contrast {
+    background-color: #426055;
+}
+
+.villain-contrast {
+    background-color: #8A198A;
+}
+
+.villain-contrast, .hero-contrast {
+    color: f4f4f4;
+}
 /* Media queries */
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -172,7 +189,8 @@ body {
 
     #hero-image,
     #villain-image {
-        visibility: hidden;
+        height: 100px;
+        width: 100px;
     }
 
 }
@@ -182,6 +200,12 @@ body {
     #screen-section {
         flex-direction: row;
         height: 50vh;
+    }
+
+    #hero-image,
+    #villain-image {
+        height: 150px;
+        width: 150px;
     }
 
 }
