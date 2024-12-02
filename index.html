@@ -17,9 +17,41 @@
             <h1 style="color: white;">Trivial Hero</h1>
             <div style="width: 30%;">
                 <button type="button" class="btn btn-light m-2 w-100" id="startGame">Start Game</button>
-                <button type="button" class="btn btn-light m-2 w-100" id="instructions">Instructions</button>
-                <button type="button" class="btn btn-primary m-2 w-100" data-bs-toggle="modal"
-                    data-bs-target="#settingsModal">
+                <!-- Instruction button and modal -->
+                <button type="button" class="btn btn-light m-2 w-100" id="instructions" data-bs-toggle="modal" data-bs-target="#instructionsModal">Instructions</button>
+                <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="instructionsModalLabel">Instructions</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h6>Welcome to Trivial Hero!</h6>
+                                <p>In this game, you will face off against a villain in a battle of wits. Answer trivia questions correctly to attack the villain and reduce their health. Be careful, though! If you answer incorrectly, the villain will attack you.</p>
+                                <h6>How to Play:</h6>
+                                <ul>
+                                    <li>Select a category and difficulty level from the settings menu.</li>
+                                    <li>Enter your hero's name.</li>
+                                    <li>Click "Start Game" to begin.</li>
+                                    <li>Answer the trivia questions by clicking on one of the four answer buttons.</li>
+                                    <li>If you answer correctly, your hero will attack the villain. If you answer incorrectly, the villain will attack your hero.</li>
+                                    <li>The game ends when either the hero or the villain's health reaches zero.</li>
+                                </ul>
+                                <h6>Tips:</h6>
+                                <ul>
+                                    <li>Pay attention to the question category and difficulty level to strategize your answers.</li>
+                                    <li>Use the "Start Again" button to reset the game and try different strategies.</li>
+                                </ul>
+                                <p>Good luck, and may the best trivia master win!</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary m-2 w-100" data-bs-toggle="modal" data-bs-target="#settingsModal">
                     <i class="fa-solid fa-gear" id="settings-button"> Settings</i></button>
                 <!-- Modal -->
                 <div class="modal modal-lg fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel"
@@ -79,8 +111,6 @@
                             <div class="d-flex justify-content-between"></div>
                             <button type="button" class="btn btn-primary flex-fill m-1"
                                 data-bs-dismiss="modal">Save</button>
-                            <button type="button" class="btn btn-secondary flex-fill m-1" id="fsbtn">Go
-                                Fullscreen</button>
                         </div>
                     </div>
                 </div>
@@ -90,9 +120,12 @@
         <!-- Modal End -->
         </div>
         </div>
-        <!-- MIKE delete? Fullscreen--> <!-- <div id="fullscreen-area"> -->
-            <!-- Hero content goes here -->
-    <header class="bg-dark text-white text-center py-3"><h1>Trivial Hero</h1></header>
+
+        <div id="fullscreen-area">
+    <header class="bg-dark text-white text-center py-3"><h1>Trivial hero</h1>
+        <button type="button" class="btn btn-secondary flex-fill m-1" id="fsbtn">Go Fullscreen</button>
+    </header>
+          
         <section id="game-area" class="border border-primary p-3">
             <div class="container border border-primary p-3 d-flex" id="screen-section">
                 <div class="characterBox border border-primary p-3 d-flex flex-column" id="hero-section">
@@ -157,8 +190,7 @@
         </div>
         </div>
         </section>
-        <!-- MIKE delete? fullscreen </div> -->
-
+        </div>
     </main>
     <footer class="bg-dark text-white text-center py-3 mt-4">
         <div class="container">
