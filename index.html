@@ -22,10 +22,10 @@
         <div id="fullscreen-overlay">
             <h1 style="color: white;">Trivial Hero</h1>
             <div style="width: 30%;">
-                <button type="button" class="btn btn-primary-outline m-2 w-100" id="startGame">Start Game</button>
+                <button type="button" class="btn btn-primary-outline m-2 w-100" id="startGame" aria-label="Start game">Start Game</button>
                 <!-- Instruction button and modal -->
                 <button type="button" class="btn btn-primary-outline m-2 w-100" id="instructions" data-bs-toggle="modal"
-                    data-bs-target="#instructionsModal">Instructions</button>
+                    data-bs-target="#instructionsModal" aria-label="Instructions">Instructions</button>
                 <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -191,33 +191,33 @@
                         </div>
                         <div class="row justify-content-center border border-primary p-3 text-areas">
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-outline-primary w-100" id="answer1">Answer
+                                <button type="button" class="btn btn-outline-primary w-100" id="answer1" aria-label="First answer">Answer
                                     1</button>
                             </div>
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-outline-primary w-100" id="answer2">Answer
+                                <button type="button" class="btn btn-outline-primary w-100" id="answer2" aria-label="Second answer">Answer
                                     2</button>
                             </div>
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-outline-primary w-100" id="answer3">Answer
+                                <button type="button" class="btn btn-outline-primary w-100" id="answer3" aria-label="Third answer">Answer
                                     3</button>
                             </div>
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-outline-primary w-100" id="answer4">Answer
+                                <button type="button" class="btn btn-outline-primary w-100" id="answer4" aria-label="Fourth answer">Answer
                                     4</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </section>
+        </div>
     </main>
     <footer class="bg-dark text-white text-center py-3">
         <div class="container">
             <div class="row text-center">
                 <div class="col-12 text-center">
-                    <button type="button" class="btn btn-light m-2 py-2 w-25" id="startAgain">Start Again</button>
-                    <button type="button" class="btn btn-light m-2 py-2 w-25" id="menu">Menu</button>
+                    <button type="button" class="btn btn-light m-2 py-2 w-25" id="startAgain" aria-label="Restart game">Start Again</button>
+                    <button type="button" class="btn btn-light m-2 py-2 w-25" id="menu" aria-label="Return to menu">Menu</button>
                 </div>
                 <div class="row text-center">
                     <p>Built by Daniel, Phil and Michael</p>
