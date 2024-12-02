@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ["Pondering Punch"],
             ["Brain Blender"],
             ["Knowledge Knockout"],
-            ["WWhirling Wisdon"],
+            ["Whirling Wisdon"],
             ["Insight Impact"],
             ["Logic Lunge"],
             ["Reasoning Rumble"],
@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     /* Mike Delete? fullscreen button */
-    /* let fullScreenArea = document.getElementById("fullscreen-area");
-    let fsbtn = document.getElementById("fsbtn"); */
+    let fullScreenArea = document.getElementById("fullscreen-area");
+    let fsbtn = document.getElementById("fsbtn");
 
 
     // Event listeners
@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function () {
         answer4.disabled = false;
     }
 
-    /* MIKE reset game function */
+    /* reset game function */
     function resetGame() {
         // Reset hero and villain health and status
         hero.health = 100;
@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* MIKE delete? fullscreen button test */
-    /* fsbtn.addEventListener("click", () => {
+    fsbtn.addEventListener("click", () => {
         if (fsbtn.textContent == "Go Fullscreen") {
             if (fullScreenArea.requestFullscreen) {
                 fullScreenArea.requestFullscreen();
@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function () {
             fsbtn.textContent = "Go Fullscreen";
 
         }
-    }); */
+    });
 
     /**
      * Handles the hero's attack on the villain.
@@ -557,13 +557,14 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchQuestions();
             let randomEvent = `In an attempt to confuse our hero the villain sets the question category to ${questionCategory.options[questionCategory.selectedIndex].text}!`;
             document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
+            fetchQuestions();
         } else if (randomEventChance < 0.6) { // 10% chance to change question difficulty
             let difficulties = ["easy", "medium", "hard"];
             let randomDifficulty = difficulties[Math.floor(Math.random() * difficulties.length)];
             difficultySelector.value = randomDifficulty;
-            fetchQuestions();
             let randomEvent = `In an attempt to confuse our hero the villain sets the question difficulty to ${difficultySelector.value}!`;
             document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
+            fetchQuestions();
         }
     }
 });
