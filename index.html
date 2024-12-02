@@ -133,77 +133,84 @@
         </div>
         <!-- Modal End -->
         <div id="fullscreen-area">
-        <header class="bg-dark text-white text-center py-3">
-            <h1>Trivial Hero</h1>
-            <button type="button" class="btn btn-secondary flex-fill m-1" id="fsbtn">Go Fullscreen</button>
-        </header>
-        <section id="game-area" class="p-3">
-            <div id="fullscreen-area">
-                <section class="p-3">
-                    <div class="container border border-primary p-3 d-flex" id="screen-section">
-                        <div class="characterBox p-3 d-flex flex-column flex-shrink" id="hero-section">
-                            <div class="character-info">
-                                <div class="healthbar mb-2">
-                                    <p class="health-number" id="hero-health">100</p>
-                                    <span style="width: 100%" id="hero-health-bar"></span>
+            <header class="bg-dark text-white text-center py-3">
+                <h1>Trivial Hero</h1>
+                <button type="button" class="btn btn-secondary flex-fill m-1" id="fsbtn">Go Fullscreen</button>
+            </header>
+            <section id="game-area" class="p-3">
+                <div>
+                    <section class="p-3">
+                        <div class="container border border-primary p-3 d-flex" id="screen-section">
+                            <div class="characterBox p-3 d-flex flex-column flex-shrink" id="hero-section">
+                                <div class="character-info">
+                                    <div class="healthbar mb-2">
+                                        <p class="health-number" id="hero-health">100</p>
+                                        <span style="width: 100%" id="hero-health-bar"></span>
+                                    </div>
+                                    <h2 id="hero-name">Trivial Hero</h2>
                                 </div>
-                                <h2 id="hero-name">Trivial Hero</h2>
+                                <div class="d-flex align-items-end flex-grow-1 flex-shrink">
+                                    <img src="assets/images/hero1.gif" alt="Hero Image" class="img-fluid"
+                                        id="hero-image">
+                                </div>
                             </div>
-                            <div class="d-flex align-items-end flex-grow-1 flex-shrink">
-                                <img src="assets/images/hero1.gif" alt="Hero Image" class="img-fluid" id="hero-image">
+                            <!-- Villain content goes here -->
+                            <div class="characterBox p-3 d-flex flex-column flex-shrink" id="villain-section">
+                                <div class="character-info">
+                                    <div class="healthbar mb-2">
+                                        <p class="health-number" id="villain-health">100</p>
+                                        <span style="width: 100%" id="villain-health-bar"></span>
+                                    </div>
+                                    <h2 id="villain-name">Villain</h2>
+                                </div>
+                                <div class="d-flex align-items-end flex-grow-1 flex-shrink">
+                                    <img src="assets/images/villain1.gif" alt="Villain Image" class="img-fluid"
+                                        id="villain-image">
+                                </div>
                             </div>
                         </div>
-                        <!-- Villain content goes here -->
-                        <div class="characterBox p-3 d-flex flex-column flex-shrink" id="villain-section">
-                            <div class="character-info">
-                                <div class="healthbar mb-2">
-                                    <p class="health-number" id="villain-health">100</p>
-                                    <span style="width: 100%" id="villain-health-bar"></span>
+                        <div class="container text-areas">
+                            <div class="row">
+                                <div class="col-md-6 border border-primary p-3 hero-contrast">
+                                    <p id="hero-outcome">Our hero enters the fight!</p>
                                 </div>
-                                <h2 id="villain-name">Villain</h2>
-                            </div>
-                            <div class="d-flex align-items-end flex-grow-1 flex-shrink">
-                                <img src="assets/images/villain1.gif" alt="Villain Image" class="img-fluid" id="villain-image">
+                                <div class="col-md-6 border border-primary p-3 villain-contrast">
+                                    <p id="villain-outcome">The abstract representation of knowledge approaches!</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
+                    <!-- Fight log -->
+
+                    <!-- Quiz section -->
                     <div class="container text-areas">
                         <div class="row">
-                            <div class="col-md-6 border border-primary p-3 hero-contrast">
-                                <p id="hero-outcome">Our hero enters the fight!</p>
-                            </div>
-                            <div class="col-md-6 border border-primary p-3 villain-contrast">
-                                <p id="villain-outcome">The abstract representation of knowledge approaches!</p>
+                            <div class="col-md-12 border border-primary p-3" id="question-section">
+                                <p id="question-text">Question text</p>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <!-- Fight log -->
-
-                <!-- Quiz section -->
-                <div class="container text-areas">
-                    <div class="row">
-                        <div class="col-md-12 border border-primary p-3" id="question-section">
-                            <p id="question-text">Question text</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center border border-primary p-3 text-areas">
-                        <div class="col-md-3">
-                            <button type="button" class="btn btn-outline-primary w-100" id="answer1">Answer 1</button>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="button" class="btn btn-outline-primary w-100" id="answer2">Answer 2</button>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="button" class="btn btn-outline-primary w-100" id="answer3">Answer 3</button>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="button" class="btn btn-outline-primary w-100" id="answer4">Answer 4</button>
+                        <div class="row justify-content-center border border-primary p-3 text-areas">
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-outline-primary w-100" id="answer1">Answer
+                                    1</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-outline-primary w-100" id="answer2">Answer
+                                    2</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-outline-primary w-100" id="answer3">Answer
+                                    3</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-outline-primary w-100" id="answer4">Answer
+                                    4</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            </section>
     </main>
     <footer class="bg-dark text-white text-center py-3">
         <div class="container">
@@ -214,8 +221,8 @@
                 </div>
                 <div class="row text-center">
                     <p>Built by Daniel, Phil and Michael</p>
+                </div>
             </div>
-        </div>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

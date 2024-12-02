@@ -14,16 +14,16 @@ In Trivial Hero, you’ll guide a hero through a quizzical retro-arcade inspired
 
 ## Contents
 
-- Responsivity Examples
-- Wireframes
-- User Stories
-- Design / Features
-- Responsivity
-- Future Features
-- Technologies Used
-- Deployment
-- Testing
-- Credits
+- [Responsivity Examples](#responsivity-examples)
+- [Wireframes](#wireframes)
+- [User Stories](#user-stories)
+- [Design / Features](#design--features)
+- [Future Features](#future-features)
+- [Technologies Used](#technologies-used)
+- [Deployment](#deployment)
+- [Bugs Encountered and Fixed](#bugs-encountered-and-fixed)
+- [Testing](#testing)
+- [Credits](#credits)
 
 ## Responsivity Examples
 
@@ -209,7 +209,13 @@ The design of Trivial Hero revolves around a retro arcade theme, combining dynam
 
 The design combines trivia challenges with arcade-style combat, ensuring that players are engaged through both mental puzzles and action-packed gameplay. Each design choice contributes to the core themes of fun, nostalgia, and unpredictability.
 
-## Bug Fixes
+## Bugs Encountered and Fixed
+
+#### Fullscreen Button
+
+- **Bug:** The fullscreen button was not functioning correctly, failing to toggle the game into fullscreen mode.
+- **Bug:** The game did not end when either the hero's or villain's health reached 0, causing the game to continue indefinitely.
+- **Bug:** The footer was not aligned correctly on different screen sizes, causing layout issues.
 
 ## Future Features
 
