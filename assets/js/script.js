@@ -234,15 +234,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 "the Dreadful", "the Fearsome", "the Horrible", "the Menacing", "the Nefarious",
                 "the Villainous", "the Malicious"
             ];
-
-            // Generate a random prefix and suffix for the villain's name
-            const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-            const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
-            const categoryWords = currentCategory.split(" ");
-            const lastWord = categoryWords[categoryWords.length - 1];
-            // Combine the random prefix, last word of the category, and random suffix to create the villain's name
-            villain.nameVillain = `${randomPrefix} "${lastWord}" ${randomSuffix}`;
-            villainTitle.innerHTML = villain.nameVillain;
+            if (currentQuestionIndex === 1) {
+                // Generate a random prefix and suffix for the villain's name
+                const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+                const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+                const categoryWords = currentCategory.split(" ");
+                const lastWord = categoryWords[categoryWords.length - 1];
+                // Combine the random prefix, last word of the category, and random suffix to create the villain's name
+                villain.nameVillain = `${randomPrefix} "${lastWord}" ${randomSuffix}`;
+                villainTitle.innerHTML = villain.nameVillain;
+            }
 
             // Set the hero's name dynamically based on the user input
             if (!hero.nameHero) {
@@ -271,19 +272,19 @@ document.addEventListener('DOMContentLoaded', function () {
             e.target.style.backgroundColor = 'red';
             // Highlight the correct answer in light green
             if (answer1.innerHTML === correctAnswer) {
-                answer1.style.backgroundColor = '#d4edda';
+                answer1.style.backgroundColor = '#e6f7e6';
                 answer1.style.color = 'black';
             }
             if (answer2.innerHTML === correctAnswer) {
-                answer2.style.backgroundColor = '#d4edda';
+                answer2.style.backgroundColor = '#e6f7e6';
                 answer2.style.color = 'black';
             }
             if (answer3.innerHTML === correctAnswer) {
-                answer3.style.backgroundColor = '#d4edda';
+                answer3.style.backgroundColor = '#e6f7e6';
                 answer3.style.color = 'black';
             }
             if (answer4.innerHTML === correctAnswer) {
-                answer4.style.backgroundColor = '#d4edda';
+                answer4.style.backgroundColor = '#e6f7e6';
                 answer4.style.color = 'black';
             }
         }
@@ -412,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resetAnswerStyles();
     }
 
-    /* MIKE delete? fullscreen button test */
+    // Fullscreen button and function
     fsbtn.addEventListener("click", () => {
         if (fsbtn.textContent == "Go Fullscreen") {
             if (fullScreenArea.requestFullscreen) {
