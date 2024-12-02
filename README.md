@@ -211,11 +211,11 @@ The design combines trivia challenges with arcade-style combat, ensuring that pl
 
 ## Bugs Encountered and Fixed
 
-#### Fullscreen Button
-
 - **Bug:** The fullscreen button was not functioning correctly, failing to toggle the game into fullscreen mode.
 - **Bug:** The game did not end when either the hero's or villain's health reached 0, causing the game to continue indefinitely.
 - **Bug:** The footer was not aligned correctly on different screen sizes, causing layout issues.
+
+No other known bugs exist at the time of deployment.
 
 ## Future Features
 
@@ -261,10 +261,27 @@ You can find the live deployment of this project [here](https://philgck.github.i
 ## Testing
 
 - [HTML Validator](https://validator.w3.org/)
+
+![HTML Validator](assets/images/readme/html_validator.png)
+
 - [CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+![CSS Validator](assets/images/readme/css_validator.png)
+
 - [WAVE Validator](https://wave.webaim.org/)
+
+![WAVE Validator](assets/images/readme/wave_validator.png)
+Some contrast issues were highlighted but we decided to continue to fit the theme of the site.
+
 - [JS Validator](https://jshint.com/)
+
+![JS Validator](assets/images/readme/js_validator.png)
+Mozilla specific warnings about 'let'. Not considered to be an issue for this project.
+
 - [Lighthouse Testing](https://developer.chrome.com/docs/lighthouse/overview)
+
+![Lighthouse Testing](assets/images/readme/lighthouse.png)
+
 
 ## Credits
 
