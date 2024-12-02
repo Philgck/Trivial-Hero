@@ -412,10 +412,12 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('hero-outcome').innerHTML = '';
         document.getElementById('villain-outcome').innerHTML = '';
 
-        // Reset questions and answers
+        // Reset questions and answers and hero and villain images
         currentQuestionIndex = 0;
         questions = [];
         fetchQuestions();
+        heroHealthImage();
+        villainHealthImage();
 
         // Reset answer button styles
         resetAnswerStyles();
