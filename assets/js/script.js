@@ -487,6 +487,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hero.isAlive && villain.isAlive) {
             let heroAttack = hero.attack();
             document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} attacked with ${heroAttack[0]} for ${heroDamage} damage!`;
+            document.getElementById('villain-outcome').innerHTML = '';
             villain.health -= heroDamage;
             villainHealthImage();
 
@@ -527,6 +528,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hero.isAlive && villain.isAlive) {
             let villainAttack = villain.attack();
             document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} attacked with ${villainAttack[0]} for ${villainDamage} damage!`;
+            document.getElementById('hero-outcome').innerHTML = '';
             hero.health -= villainDamage;
             heroHealthImage();
 
