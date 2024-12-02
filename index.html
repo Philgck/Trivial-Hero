@@ -106,7 +106,7 @@
                                 <div class="col mt-3"></div>
                                 <label for="hero-name-input" class="form-label">Hero Name:</label>
                                 <input type="text" class="form-control" id="hero-name-input"
-                                    placeholder="Enter hero name">
+                                    placeholder="Enter hero name" maxlength="30">
                             </div>
                             <div class="d-flex justify-content-between"></div>
                             <button type="button" class="btn btn-primary flex-fill m-1"
@@ -120,40 +120,42 @@
         <!-- Modal End -->
         </div>
         </div>
+
         <div id="fullscreen-area">
     <header class="bg-dark text-white text-center py-3"><h1>Trivial hero</h1>
         <button type="button" class="btn btn-secondary flex-fill m-1" id="fsbtn">Go Fullscreen</button>
     </header>
+          
         <section id="game-area" class="border border-primary p-3">
             <div class="container border border-primary p-3 d-flex" id="screen-section">
                 <div class="characterBox border border-primary p-3 d-flex flex-column" id="hero-section">
                     <div style="flex: 0 0 20%;">
-                        <h2 id="hero-name">Trivial Hero</h2>
-                        <div class="healthbar">
+                        <div class="healthbar mb-2">
                             <p class="health-number" id="hero-health">100</p>
                             <span style="width: 100%" id="hero-health-bar"></span>
                         </div>
+                        <h2 id="hero-name">Trivial Hero</h2>
                     </div>
                     <div class="d-flex align-items-end" style="flex: 0 0 80%;">
                         <img src="assets/images/hero.gif" alt="Hero Image" class="img-fluid" id="hero-image">
                     </div>
-                    <!-- Hero content goes here -->
                 </div>
+                <!-- Villain content goes here -->
                 <div class="characterBox border border-primary p-3 d-flex flex-column" id="villain-section">
                     <div style="flex: 0 0 20%;">
-                        <h2 id="villain-name">Villain</h2>
-                        <div class="healthbar">
+                        <div class="healthbar mb-2">
                             <p class="health-number" id="villain-health">100</p>
                             <span style="width: 100%" id="villain-health-bar"></span>
                         </div>
+                        <h2 id="villain-name">Villain</h2>
                     </div>
                     <div class="d-flex align-items-end" style="flex: 0 0 80%;">
                         <img src="assets/images/hero.gif" alt="Hero Image" class="img-fluid" id="villain-image">
                     </div>
-                    <!-- Villain content goes here -->
                 </div>
             </div>
         </section>
+        <!-- Fight log -->
         <div class="container text-areas">
             <div class="row">
                 <div class="col-md-6 border border-primary p-3" id="fight-section">
@@ -164,26 +166,25 @@
                 </div>
             </div>
         </div>
+        <!-- Quiz section -->
         <div class="container text-areas">
             <div class="row">
                 <div class="col-md-12 border border-primary p-3" id="question-section">
-                    <p id="question-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure eveniet
-                        eius corporis suscipit libero. Distinctio laudantium ad neque autem non, architecto, modi
-                        officiis obcaecati quod temporibus sed odit natus placeat?</p>
+                    <p id="question-text">Question text</p>
                 </div>
             </div>
             <div class="row justify-content-center border border-primary p-3 text-areas">
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-primary w-100" id="answer1">Button 1</button>
+                    <button type="button" class="btn btn-primary w-100" id="answer1">Answer 1</button>
                 </div>
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-primary w-100" id="answer2">Button 2</button>
+                    <button type="button" class="btn btn-primary w-100" id="answer2">Answer 2</button>
                 </div>
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-primary w-100" id="answer3">Button 3</button>
+                    <button type="button" class="btn btn-primary w-100" id="answer3">Answer 3</button>
                 </div>
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-primary w-100" id="answer4">Button 4</button>
+                    <button type="button" class="btn btn-primary w-100" id="answer4">Answer 4</button>
                 </div>
             </div>
         </div>

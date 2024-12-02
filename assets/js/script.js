@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ["Pondering Punch"],
             ["Brain Blender"],
             ["Knowledge Knockout"],
-            ["WWhirling Wisdon"],
+            ["Whirling Wisdon"],
             ["Insight Impact"],
             ["Logic Lunge"],
             ["Reasoning Rumble"],
@@ -557,13 +557,14 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchQuestions();
             let randomEvent = `In an attempt to confuse our hero the villain sets the question category to ${questionCategory.options[questionCategory.selectedIndex].text}!`;
             document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
+            fetchQuestions();
         } else if (randomEventChance < 0.6) { // 10% chance to change question difficulty
             let difficulties = ["easy", "medium", "hard"];
             let randomDifficulty = difficulties[Math.floor(Math.random() * difficulties.length)];
             difficultySelector.value = randomDifficulty;
-            fetchQuestions();
             let randomEvent = `In an attempt to confuse our hero the villain sets the question difficulty to ${difficultySelector.value}!`;
             document.getElementById('hero-outcome').innerHTML += ` ${randomEvent}`;
+            fetchQuestions();
         }
     }
 });
