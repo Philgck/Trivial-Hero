@@ -171,10 +171,14 @@ body {
 
 #villain-name {
     color: var(--neon-blue);
+    min-height: 150px;
+    text-align: center;
 }
 
 #hero-name {
     color: var(--neon-blue);
+    min-height: 150px;
+    text-align: center;
 }
 
 /* Media queries */
