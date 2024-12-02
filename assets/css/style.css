@@ -4,6 +4,7 @@
     --neon-blue: #00FFFF;
     --neon-pink: #FF00FF;
     --gun-grey: #8D918D;
+    --cream: #F4F4F4;
 }
 
 .audiowide-regular {
@@ -16,18 +17,19 @@
 
 h1, h2, h3, h4, h5, h6, p, span, a, li {
     font-family: "Audiowide", sans-serif;
-    color: var(--neon-pink);
 }
 
 /* Fullscreen Overlay */
 
 #fullscreen-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-position: center;
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -151,19 +153,34 @@ body {
 
 .text-areas {
     background-color: black;
+    color: var(--cream);
 }
 
 .hero-contrast {
     background-color: #426055;
+    color: var(--cream);
 }
 
 .villain-contrast {
     background-color: #8A198A;
 }
 
-.villain-contrast, .hero-contrast {
-    color: f4f4f4;
+#question-section {
+    color: var(--neon-pink);
 }
+
+#villain-name {
+    color: var(--neon-blue);
+    min-height: 150px;
+    text-align: center;
+}
+
+#hero-name {
+    color: var(--neon-blue);
+    min-height: 150px;
+    text-align: center;
+}
+
 /* Media queries */
 
 /* Extra small devices (portrait phones, less than 576px) */
