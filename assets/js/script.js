@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (fullScreenArea.webkitRequestFullscreen) {
                 fullScreenArea.webkitRequestFullscreen();
             }
-    
+
             fsbtn.textContent = "Exit Fullscreen";
 
         } else {
@@ -438,11 +438,28 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (document.webkitExitFullscreen) {
                 document.webkitExitFullscreen();
             }
-    
+
             fsbtn.textContent = "Go Fullscreen";
 
         }
     });
+
+    //* Hero and villain images change dynamically based on health *//
+    function heroHealthImage() {
+        if (hero.health >= 50) {
+            document.getElementById('hero-image').src = 'assets/images/hero1.gif';
+        } else if (hero.health < 50) {
+            document.getElementById('hero-image').src = 'assets/images/hero2.gif';
+        }
+    }
+
+    function villainHealthImage() {
+        if (villain.health >= 50) {
+            document.getElementById('villain-image').src = 'assets/images/villain1.gif';
+        } else if (villain.health < 50) {
+            document.getElementById('villain-image').src = 'assets/images/villain2.gif';
+        }
+    }
 
     /**
      * Handles the hero's attack on the villain.
@@ -461,6 +478,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let heroAttack = hero.attack();
             document.getElementById('hero-outcome').innerHTML = `${hero.nameHero} attacked with ${heroAttack[0]} for ${heroDamage} damage!`;
             villain.health -= heroDamage;
+            villainHealthImage();
 
             // Update the hero's health display
             document.getElementById('hero-health').innerText = `${hero.health}`;
@@ -500,6 +518,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let villainAttack = villain.attack();
             document.getElementById('villain-outcome').innerHTML = `${villain.nameVillain} attacked with ${villainAttack[0]} for ${villainDamage} damage!`;
             hero.health -= villainDamage;
+            heroHealthImage();
 
             if (hero.health <= 0) {
                 /* MIKE health doesnt drop below 0 */
@@ -568,4 +587,5 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchQuestions();
         }
     }
+
 });
