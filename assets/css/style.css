@@ -153,6 +153,17 @@ body {
     background-color: black;
 }
 
+.hero-contrast {
+    background-color: #426055;
+}
+
+.villain-contrast {
+    background-color: #8A198A;
+}
+
+.villain-contrast, .hero-contrast {
+    color: f4f4f4;
+}
 /* Media queries */
 
 /* Extra small devices (portrait phones, less than 576px) */
