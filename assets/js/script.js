@@ -267,25 +267,33 @@ document.addEventListener('DOMContentLoaded', function () {
         disableAnswers(); // Disable the answers when one is selected
 
         if (e.target.innerHTML === correctAnswer) {
-            e.target.style.backgroundColor = 'green';
+            e.target.style.backgroundColor = 'green'; // Highlight the correct answer in green
+            e.target.style.color = 'white'; // Change the text color to white
+            e.target.style.fontWeight = 'bold'; // Add bold text style
         } else {
-            e.target.style.backgroundColor = 'red';
-            // Highlight the correct answer in light green
+            e.target.style.backgroundColor = 'red'; // Highlight the incorrect answer in red
+            e.target.style.color = 'white'; // Change the text color to white
+            e.target.style.fontWeight = 'bold'; // Add bold text style
+            // Highlight the correct answer in light green with white text when an incorrect answer is selected
             if (answer1.innerHTML === correctAnswer) {
-                answer1.style.backgroundColor = '#e6f7e6';
-                answer1.style.color = 'black';
+                answer1.style.backgroundColor = 'green';
+                answer1.style.color = 'white';
+                answer1.style.fontWeight = 'bold';
             }
             if (answer2.innerHTML === correctAnswer) {
-                answer2.style.backgroundColor = '#e6f7e6';
-                answer2.style.color = 'black';
+                answer2.style.backgroundColor = 'green';
+                answer2.style.color = 'white';
+                answer2.style.fontWeight = 'bold';
             }
             if (answer3.innerHTML === correctAnswer) {
-                answer3.style.backgroundColor = '#e6f7e6';
-                answer3.style.color = 'black';
+                answer3.style.backgroundColor = 'green';
+                answer3.style.color = 'white';
+                answer3.style.fontWeight = 'bold';
             }
             if (answer4.innerHTML === correctAnswer) {
-                answer4.style.backgroundColor = '#e6f7e6';
-                answer4.style.color = 'black';
+                answer4.style.backgroundColor = 'green';
+                answer4.style.color = 'white';
+                answer4.style.fontWeight = 'bold';
             }
         }
 
