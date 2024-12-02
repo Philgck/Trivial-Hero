@@ -23,30 +23,38 @@
             <div style="width: 30%;">
                 <button type="button" class="btn btn-light m-2 w-100" id="startGame">Start Game</button>
                 <!-- Instruction button and modal -->
-                <button type="button" class="btn btn-light m-2 w-100" id="instructions" data-bs-toggle="modal" data-bs-target="#instructionsModal">Instructions</button>
-                <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+                <button type="button" class="btn btn-light m-2 w-100" id="instructions" data-bs-toggle="modal"
+                    data-bs-target="#instructionsModal">Instructions</button>
+                <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="instructionsModalLabel">Instructions</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <h6>Welcome to Trivial Hero!</h6>
-                                <p>In this game, you will face off against a villain in a battle of wits. Answer trivia questions correctly to attack the villain and reduce their health. Be careful, though! If you answer incorrectly, the villain will attack you.</p>
+                                <p>In this game, you will face off against a villain in a battle of wits. Answer trivia
+                                    questions correctly to attack the villain and reduce their health. Be careful,
+                                    though! If you answer incorrectly, the villain will attack you.</p>
                                 <h6>How to Play:</h6>
                                 <ul>
                                     <li>Select a category and difficulty level from the settings menu.</li>
                                     <li>Enter your hero's name.</li>
                                     <li>Click "Start Game" to begin.</li>
                                     <li>Answer the trivia questions by clicking on one of the four answer buttons.</li>
-                                    <li>If you answer correctly, your hero will attack the villain. If you answer incorrectly, the villain will attack your hero.</li>
+                                    <li>If you answer correctly, your hero will attack the villain. If you answer
+                                        incorrectly, the villain will attack your hero.</li>
                                     <li>The game ends when either the hero or the villain's health reaches zero.</li>
                                 </ul>
                                 <h6>Tips:</h6>
                                 <ul>
-                                    <li>Pay attention to the question category and difficulty level to strategize your answers.</li>
-                                    <li>Use the "Start Again" button to reset the game and try different strategies.</li>
+                                    <li>Pay attention to the question category and difficulty level to strategize your
+                                        answers.</li>
+                                    <li>Use the "Start Again" button to reset the game and try different strategies.
+                                    </li>
                                 </ul>
                                 <p>Good luck, and may the best trivia master win!</p>
                             </div>
@@ -56,7 +64,8 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary m-2 w-100" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                <button type="button" class="btn btn-primary m-2 w-100" data-bs-toggle="modal"
+                    data-bs-target="#settingsModal">
                     <i class="fa-solid fa-gear" id="settings-button"> Settings</i></button>
                 <!-- Modal -->
                 <div class="modal modal-lg fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel"
@@ -127,80 +136,74 @@
         </div>
         <!-- MIKE delete? Fullscreen--> <!-- <div id="fullscreen-area"> -->
         <header class="bg-dark text-white text-center py-3">
-            <div class="container">
-                <h1>Trivial Hero</h1>
-            </div>
+            <h1>Trivial hero</h1>
+            <button type="button" class="btn btn-secondary flex-fill m-1" id="fsbtn">Go Fullscreen</button>
         </header>
         <section id="game-area" class="p-3">
-
-        <div id="fullscreen-area">
-    <header class="bg-dark text-white text-center py-3"><h1>Trivial hero</h1>
-        <button type="button" class="btn btn-secondary flex-fill m-1" id="fsbtn">Go Fullscreen</button>
-    </header>
-          
-        <section id="game-area" class="border border-primary p-3">
-            <div class="container border border-primary p-3 d-flex" id="screen-section">
-                <div class="characterBox border border-primary p-3 d-flex flex-column" id="hero-section">
-                    <div style="flex: 0 0 20%;">
-                        <div class="healthbar mb-2">
-                            <p class="health-number" id="hero-health">100</p>
-                            <span style="width: 100%" id="hero-health-bar"></span>
+            <div id="fullscreen-area">
+                <section id="game-area" class="border border-primary p-3">
+                    <div class="container border border-primary p-3 d-flex" id="screen-section">
+                        <div class="characterBox border border-primary p-3 d-flex flex-column" id="hero-section">
+                            <div style="flex: 0 0 20%;">
+                                <div class="healthbar mb-2">
+                                    <p class="health-number" id="hero-health">100</p>
+                                    <span style="width: 100%" id="hero-health-bar"></span>
+                                </div>
+                                <h2 id="hero-name">Trivial Hero</h2>
+                            </div>
+                            <div class="d-flex align-items-end" style="flex: 0 0 80%;">
+                                <img src="assets/images/hero.gif" alt="Hero Image" class="img-fluid" id="hero-image">
+                            </div>
                         </div>
-                        <h2 id="hero-name">Trivial Hero</h2>
-                    </div>
-                    <div class="d-flex align-items-end" style="flex: 0 0 80%;">
-                        <img src="assets/images/hero.gif" alt="Hero Image" class="img-fluid" id="hero-image">
-                    </div>
-                </div>
-                <!-- Villain content goes here -->
-                <div class="characterBox border border-primary p-3 d-flex flex-column" id="villain-section">
-                    <div style="flex: 0 0 20%;">
-                        <div class="healthbar mb-2">
-                            <p class="health-number" id="villain-health">100</p>
-                            <span style="width: 100%" id="villain-health-bar"></span>
+                        <!-- Villain content goes here -->
+                        <div class="characterBox border border-primary p-3 d-flex flex-column" id="villain-section">
+                            <div style="flex: 0 0 20%;">
+                                <div class="healthbar mb-2">
+                                    <p class="health-number" id="villain-health">100</p>
+                                    <span style="width: 100%" id="villain-health-bar"></span>
+                                </div>
+                                <h2 id="villain-name">Villain</h2>
+                            </div>
+                            <div class="d-flex align-items-end" style="flex: 0 0 80%;">
+                                <img src="assets/images/hero.gif" alt="Hero Image" class="img-fluid" id="villain-image">
+                            </div>
                         </div>
-                        <h2 id="villain-name">Villain</h2>
                     </div>
-                    <div class="d-flex align-items-end" style="flex: 0 0 80%;">
-                        <img src="assets/images/hero.gif" alt="Hero Image" class="img-fluid" id="villain-image">
+                </section>
+                <!-- Fight log -->
+                <div class="container text-areas">
+                    <div class="row">
+                        <div class="col-md-6 border border-primary p-3" id="fight-section">
+                            <p id="hero-outcome">Our hero enters the fight!</p>
+                        </div>
+                        <div class="col-md-6 border border-primary p-3" id="fight-section">
+                            <p id="villain-outcome">The abstract representation of knowledge approaches!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Quiz section -->
+                <div class="container text-areas">
+                    <div class="row">
+                        <div class="col-md-12 border border-primary p-3" id="question-section">
+                            <p id="question-text">Question text</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center border border-primary p-3 text-areas">
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary w-100" id="answer1">Answer 1</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary w-100" id="answer2">Answer 2</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary w-100" id="answer3">Answer 3</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary w-100" id="answer4">Answer 4</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Fight log -->
-        <div class="container text-areas">
-            <div class="row">
-                <div class="col-md-6 border border-primary p-3" id="fight-section">
-                    <p id="hero-outcome">Our hero enters the fight!</p>
-                </div>
-                <div class="col-md-6 border border-primary p-3" id="fight-section">
-                    <p id="villain-outcome">The abstract representation of knowledge approaches!</p>
-                </div>
-            </div>
-        </div>
-        <!-- Quiz section -->
-        <div class="container text-areas">
-            <div class="row">
-                <div class="col-md-12 border border-primary p-3" id="question-section">
-                    <p id="question-text">Question text</p>
-                </div>
-            </div>
-            <div class="row justify-content-center border border-primary p-3 text-areas">
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-primary w-100" id="answer1">Answer 1</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-primary w-100" id="answer2">Answer 2</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-primary w-100" id="answer3">Answer 3</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-primary w-100" id="answer4">Answer 4</button>
-                </div>
-            </div>
-        </div>
-        </div>
         </section>
         </div>
     </main>
